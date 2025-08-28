@@ -1,0 +1,424 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Legacy colors (keeping for transition) */
+  --color-navy: #031472;
+  --color-gold: #ebde41;
+  --color-ivory: #f8f8f5;
+  --color-text: #1a1a1a;
+  --color-eco: #4a8f47;
+  --color-light-grey: #e0e0e0;
+  
+  /* New Pastel Palette */
+  --color-soft-lavender: #E8E2F7;
+  --color-powder-blue: #E1F0FF;
+  --color-mint-green: #E8F5E8;
+  --color-peach: #FFE8E1;
+  --color-light-coral: #FFF0F3;
+  --color-soft-gold: #F9F1C7;
+  --color-gentle-rose: #F7E8F0;
+  --color-lavender-mist: #F0EBFF;
+  --color-soft-charcoal: #4A4A4A;
+  --color-medium-gray: #6B6B6B;
+  --color-light-gray: #E5E5E5;
+  --color-pure-white: #FFFFFF;
+  
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #E8E2F7 0%, #E1F0FF 100%);
+  --gradient-secondary: linear-gradient(135deg, #E8F5E8 0%, #FFE8E1 100%);
+  --gradient-accent: linear-gradient(135deg, #F9F1C7 0%, #F7E8F0 100%);
+  --gradient-soft: linear-gradient(135deg, #FFF0F3 0%, #F0EBFF 100%);
+  --gradient-hero: linear-gradient(135deg, #E8E2F7 0%, #E1F0FF 50%, #E8F5E8 100%);
+  
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Inter', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-soft-charcoal);
+  background: linear-gradient(135deg, #FFFFFF 0%, #F8F8FF 100%);
+  line-height: 1.7;
+  letter-spacing: 0.2px;
+  min-height: 100vh;
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+.text-soft-lavender { color: var(--color-soft-lavender); }
+.text-powder-blue { color: var(--color-powder-blue); }
+.text-mint-green { color: var(--color-mint-green); }
+.text-peach { color: var(--color-peach); }
+.text-light-coral { color: var(--color-light-coral); }
+.text-soft-gold { color: var(--color-soft-gold); }
+.text-gentle-rose { color: var(--color-gentle-rose); }
+.text-lavender-mist { color: var(--color-lavender-mist); }
+.text-soft-charcoal { color: var(--color-soft-charcoal); }
+.text-medium-gray { color: var(--color-medium-gray); }
+.text-light-gray { color: var(--color-light-gray); }
+.text-pure-white { color: var(--color-pure-white); }
+
+.bg-soft-lavender { background-color: var(--color-soft-lavender); }
+.bg-powder-blue { background-color: var(--color-powder-blue); }
+.bg-mint-green { background-color: var(--color-mint-green); }
+.bg-peach { background-color: var(--color-peach); }
+.bg-light-coral { background-color: var(--color-light-coral); }
+.bg-soft-gold { background-color: var(--color-soft-gold); }
+.bg-gentle-rose { background-color: var(--color-gentle-rose); }
+.bg-lavender-mist { background-color: var(--color-lavender-mist); }
+.bg-soft-charcoal { background-color: var(--color-soft-charcoal); }
+.bg-medium-gray { background-color: var(--color-medium-gray); }
+.bg-light-gray { background-color: var(--color-light-gray); }
+.bg-pure-white { background-color: var(--color-pure-white); }
+
+/* Legacy color utilities (keeping for transition) */
+.text-navy { color: var(--color-navy); }
+.text-gold { color: var(--color-gold); }
+.text-ivory { color: var(--color-ivory); }
+.text-eco { color: var(--color-eco); }
+
+.bg-navy { background-color: var(--color-navy); }
+.bg-gold { background-color: var(--color-gold); }
+.bg-ivory { background-color: var(--color-ivory); }
+.bg-eco { background-color: var(--color-eco); }
+
+.btn-primary {
+  background: var(--gradient-accent);
+  color: var(--color-soft-charcoal);
+  padding: 16px 32px;
+  border: none;
+  border-radius: 12px;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(249, 241, 199, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.5s;
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #F7E8F0 0%, #F9F1C7 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(247, 232, 240, 0.5);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-soft-charcoal);
+  border: 2px solid;
+  border-image: var(--gradient-accent) 1;
+  padding: 14px 30px;
+  border-radius: 12px;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-secondary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--gradient-accent);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  z-index: -1;
+}
+
+.btn-secondary:hover::before {
+  opacity: 1;
+}
+
+.btn-secondary:hover {
+  color: var(--color-soft-charcoal);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(249, 241, 199, 0.3);
+}
+
+.btn-secondary.on-light {
+  border-color: var(--color-soft-charcoal);
+  color: var(--color-soft-charcoal);
+}
+
+.btn-secondary.on-light:hover {
+  background: var(--gradient-soft);
+  border-color: transparent;
+  color: var(--color-soft-charcoal);
+}
+
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-spacing {
+  padding: 96px 0;
+}
+
+/* Enhanced Mobile Compatibility */
+@media (max-width: 1024px) {
+  .section-spacing {
+    padding: 80px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-spacing {
+    padding: 64px 0;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    padding: 14px 28px;
+    font-size: 15px;
+    min-height: 48px; /* Touch-friendly minimum height */
+    min-width: 120px;
+  }
+
+  /* Enhanced typography for mobile */
+  h1 {
+    font-size: 2.5rem !important;
+    line-height: 1.2;
+  }
+
+  h2 {
+    font-size: 2rem !important;
+    line-height: 1.3;
+  }
+
+  h3 {
+    font-size: 1.5rem !important;
+    line-height: 1.4;
+  }
+
+  /* Better spacing for mobile */
+  .container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  /* Touch-friendly navigation */
+  nav a, 
+  .mobile-nav a {
+    padding: 12px 16px;
+    display: block;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+  }
+
+  /* Improved form elements for mobile */
+  input, 
+  textarea, 
+  select {
+    font-size: 16px !important; /* Prevents zoom on iOS */
+    padding: 14px 16px !important;
+    border-radius: 8px !important;
+    min-height: 48px;
+  }
+
+  /* Better card spacing on mobile */
+  .grid > * {
+    margin-bottom: 1.5rem;
+  }
+
+  /* Modal improvements for mobile */
+  .modal {
+    margin: 1rem !important;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .section-spacing {
+    padding: 48px 0;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    padding: 16px 20px;
+    font-size: 16px;
+    margin-bottom: 0.75rem;
+  }
+
+  /* Stack flex items on small screens */
+  .flex-col-sm {
+    flex-direction: column !important;
+  }
+
+  .space-y-4-sm > * + * {
+    margin-top: 1rem !important;
+  }
+
+  /* Smaller text on very small screens */
+  h1 {
+    font-size: 2rem !important;
+  }
+
+  h2 {
+    font-size: 1.75rem !important;
+  }
+
+  /* Improved mobile header */
+  .mobile-header {
+    padding: 1rem !important;
+  }
+
+  /* Better image handling on mobile */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* Touch and swipe improvements */
+@media (hover: none) and (pointer: coarse) {
+  /* Touch device specific styles */
+  .hover\:scale-105:hover {
+    transform: none;
+  }
+  
+  .hover\:shadow-xl:hover {
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+  
+  /* Make touch targets larger */
+  button,
+  a,
+  input,
+  select,
+  textarea {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Progressive Web App enhancements */
+@media screen and (max-width: 480px) {
+  /* Very small screens */
+  .container {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+  
+  .section-spacing {
+    padding: 32px 0;
+  }
+  
+  /* Compact navigation for very small screens */
+  .mobile-nav {
+    padding: 0.5rem;
+  }
+  
+  .mobile-nav a {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .btn-primary {
+    border: 2px solid var(--color-navy);
+  }
+  
+  .btn-secondary {
+    border-width: 3px;
+  }
+}
+
+/* Dark mode support for system preference */
+@media (prefers-color-scheme: dark) {
+  .bg-ivory {
+    background-color: #1a1a1a;
+  }
+  
+  .text-text {
+    color: #e5e5e5;
+  }
+}
+
+/* Hero fabric texture background */
+.hero-fabric-texture,
+section.hero-fabric-texture {
+  background: url('/images/hero_fabric_texture.png') no-repeat center center !important;
+  background-size: cover !important;
+  background-attachment: fixed !important;
+  background-color: #2c3e50 !important; /* Fallback color */
+}
+
+/* Ensure no other background properties interfere */
+.hero-fabric-texture::before,
+.hero-fabric-texture::after {
+  background: none !important;
+}
+
+/* Override any TailwindCSS background utilities */
+section.hero-fabric-texture {
+  background-image: url('/images/hero_fabric_texture.png') !important;
+}
