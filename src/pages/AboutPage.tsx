@@ -1,115 +1,117 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Award, Users, Globe, Factory, History, Target, Eye, Heart } from 'lucide-react';
 
 const AboutPage: React.FC = () => {
+  const { t } = useTranslation();
   const timelineEvents = [
     {
       year: '1995',
-      title: 'Company Founded',
-      description: 'BZJ Jakar established with a vision to create premium jacquard fabrics for the global market.'
+      title: t('aboutPage.timeline.events.1995.title'),
+      description: t('aboutPage.timeline.events.1995.description')
     },
     {
       year: '2000',
-      title: 'First Export Markets',
-      description: 'Expanded to European markets, establishing partnerships with leading fashion houses.'
+      title: t('aboutPage.timeline.events.2000.title'),
+      description: t('aboutPage.timeline.events.2000.description')
     },
     {
       year: '2005',
-      title: 'Technology Innovation',
-      description: 'Invested in state-of-the-art jacquard looms and digital design capabilities.'
+      title: t('aboutPage.timeline.events.2005.title'),
+      description: t('aboutPage.timeline.events.2005.description')
     },
     {
       year: '2010',
-      title: 'Global Expansion',
-      description: 'Opened offices in New York, London, and Milan to serve international clients.'
+      title: t('aboutPage.timeline.events.2010.title'),
+      description: t('aboutPage.timeline.events.2010.description')
     },
     {
       year: '2015',
-      title: 'Sustainability Initiative',
-      description: 'Launched comprehensive environmental program and obtained eco-certifications.'
+      title: t('aboutPage.timeline.events.2015.title'),
+      description: t('aboutPage.timeline.events.2015.description')
     },
     {
       year: '2020',
-      title: 'Digital Transformation',
-      description: 'Implemented AI-driven design tools and virtual sampling technologies.'
+      title: t('aboutPage.timeline.events.2020.title'),
+      description: t('aboutPage.timeline.events.2020.description')
     },
     {
       year: '2025',
-      title: 'Industry Leadership',
-      description: 'Recognized as global leader in premium jacquard fabric manufacturing.'
+      title: t('aboutPage.timeline.events.2025.title'),
+      description: t('aboutPage.timeline.events.2025.description')
     }
   ];
 
   const awards = [
     {
       year: '2024',
-      title: 'Excellence in Textile Innovation',
-      organization: 'International Textile Association'
+      title: t('aboutPage.awards.list.2024.title'),
+      organization: t('aboutPage.awards.list.2024.organization')
     },
     {
       year: '2023',
-      title: 'Sustainable Manufacturing Award',
-      organization: 'Global Fashion Council'
+      title: t('aboutPage.awards.list.2023.title'),
+      organization: t('aboutPage.awards.list.2023.organization')
     },
     {
       year: '2022',
-      title: 'Best B2B Textile Supplier',
-      organization: 'Fashion Industry Awards'
+      title: t('aboutPage.awards.list.2022.title'),
+      organization: t('aboutPage.awards.list.2022.organization')
     },
     {
       year: '2021',
-      title: 'Quality Excellence Certification',
-      organization: 'European Textile Standards'
+      title: t('aboutPage.awards.list.2021.title'),
+      organization: t('aboutPage.awards.list.2021.organization')
     }
   ];
 
   const capabilities = [
     {
       icon: <Factory className="w-8 h-8 text-soft-gold" />,
-      title: 'Advanced Manufacturing',
-      description: 'State-of-the-art facilities with precision jacquard looms and quality control systems.'
+      title: t('aboutPage.capabilities.advanced.title'),
+      description: t('aboutPage.capabilities.advanced.description')
     },
     {
       icon: <Globe className="w-8 h-8 text-soft-gold" />,
-      title: 'Global Distribution',
-      description: 'Worldwide shipping network serving over 50 countries with reliable delivery.'
+      title: t('aboutPage.capabilities.global.title'),
+      description: t('aboutPage.capabilities.global.description')
     },
     {
       icon: <Users className="w-8 h-8 text-soft-gold" />,
-      title: 'Expert Team',
-      description: 'Skilled artisans, designers, and technical specialists with decades of experience.'
+      title: t('aboutPage.capabilities.expert.title'),
+      description: t('aboutPage.capabilities.expert.description')
     },
     {
       icon: <Award className="w-8 h-8 text-soft-gold" />,
-      title: 'Quality Assurance',
-      description: 'Rigorous testing and quality control ensuring consistent excellence in every yard.'
+      title: t('aboutPage.capabilities.qualityAssurance.title'),
+      description: t('aboutPage.capabilities.qualityAssurance.description')
     }
   ];
 
   const teamMembers = [
     {
-      name: 'James Chen',
-      position: 'Chief Executive Officer',
-      experience: '25+ years in textile manufacturing',
-      specialty: 'Strategic leadership and global expansion'
+      name: t('aboutPage.team.members.ceo.name'),
+      position: t('aboutPage.team.members.ceo.position'),
+      experience: t('aboutPage.team.members.ceo.experience'),
+      specialty: t('aboutPage.team.members.ceo.specialty')
     },
     {
-      name: 'Maria Rodriguez',
-      position: 'Creative Director',
-      experience: '20+ years in fabric design',
-      specialty: 'Pattern development and trend forecasting'
+      name: t('aboutPage.team.members.creative.name'),
+      position: t('aboutPage.team.members.creative.position'),
+      experience: t('aboutPage.team.members.creative.experience'),
+      specialty: t('aboutPage.team.members.creative.specialty')
     },
     {
-      name: 'David Kim',
-      position: 'Head of Operations',
-      experience: '18+ years in production management',
-      specialty: 'Manufacturing efficiency and quality control'
+      name: t('aboutPage.team.members.operations.name'),
+      position: t('aboutPage.team.members.operations.position'),
+      experience: t('aboutPage.team.members.operations.experience'),
+      specialty: t('aboutPage.team.members.operations.specialty')
     },
     {
-      name: 'Sarah Johnson',
-      position: 'Sustainability Director',
-      experience: '15+ years in eco-textile innovation',
-      specialty: 'Environmental compliance and green manufacturing'
+      name: t('aboutPage.team.members.sustainability.name'),
+      position: t('aboutPage.team.members.sustainability.position'),
+      experience: t('aboutPage.team.members.sustainability.experience'),
+      specialty: t('aboutPage.team.members.sustainability.specialty')
     }
   ];
 
@@ -124,11 +126,10 @@ const AboutPage: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="font-serif font-bold text-6xl sm:text-7xl mb-6 text-soft-charcoal">
-              Our Heritage
+              {t('aboutPage.hero.title')}
             </h1>
             <p className="font-sans text-xl text-medium-gray leading-relaxed">
-              Three decades of textile excellence, combining traditional craftsmanship with innovative technology 
-              to create the world's finest jacquard fabrics.
+              {t('aboutPage.hero.description')}
             </p>
           </div>
         </div>
@@ -143,23 +144,17 @@ const AboutPage: React.FC = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="font-serif font-bold text-4xl text-soft-charcoal mb-6">
-                The BZJ Jakar Story
+                {t('aboutPage.story.title')}
               </h2>
               <div className="space-y-6 font-sans text-lg text-medium-gray leading-relaxed">
                 <p>
-                  Founded in 1995, BZJ Jakar began as a vision to bridge the gap between traditional 
-                  textile craftsmanship and modern fashion needs. Our founder recognized the declining 
-                  art of jacquard weaving and set out to preserve and elevate this magnificent craft.
+                  {t('aboutPage.story.paragraph1')}
                 </p>
                 <p>
-                  What started as a small workshop has evolved into a global leader in premium 
-                  jacquard fabric manufacturing. Today, we serve over 5,000 clients across 50+ countries, 
-                  from emerging designers to established luxury fashion houses.
+                  {t('aboutPage.story.paragraph2')}
                 </p>
                 <p>
-                  Our commitment to excellence drives every aspect of our business, from the selection 
-                  of finest raw materials to the final quality inspection. We believe that every thread 
-                  tells a story, and we're honored to be part of that narrative.
+                  {t('aboutPage.story.paragraph3')}
                 </p>
               </div>
             </div>
@@ -180,10 +175,10 @@ const AboutPage: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="font-serif font-bold text-4xl text-soft-charcoal mb-6">
-              Our Journey
+              {t('aboutPage.timeline.title')}
             </h2>
             <p className="font-sans text-lg text-medium-gray max-w-3xl mx-auto leading-relaxed">
-              Key milestones in our evolution from a small textile workshop to a global industry leader.
+              {t('aboutPage.timeline.description')}
             </p>
           </div>
 
@@ -217,10 +212,10 @@ const AboutPage: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="font-serif font-bold text-4xl mb-6">
-              Manufacturing Excellence
+              {t('aboutPage.manufacturing.title')}
             </h2>
             <p className="font-sans text-lg text-pure-white/90 max-w-3xl mx-auto leading-relaxed">
-              Our state-of-the-art facilities combine traditional craftsmanship with cutting-edge technology.
+              {t('aboutPage.manufacturing.description')}
             </p>
           </div>
 
@@ -233,21 +228,16 @@ const AboutPage: React.FC = () => {
               />
             </div>
             <div className="space-y-6">
-              <h3 className="font-serif font-semibold text-3xl text-soft-gold mb-6">Production Capabilities</h3>
+              <h3 className="font-serif font-semibold text-3xl text-soft-gold mb-6">{t('aboutPage.manufacturing.production.title')}</h3>
               <div className="space-y-4 font-sans text-pure-white/90 leading-relaxed">
                 <p>
-                  Our 50,000 square foot facility houses 120 precision jacquard looms, each capable of 
-                  producing intricate patterns with up to 10,000 warp threads. This allows us to create 
-                  designs of unprecedented complexity and beauty.
+                  {t('aboutPage.manufacturing.production.paragraph1')}
                 </p>
                 <p>
-                  Advanced quality control systems monitor every stage of production, from yarn preparation 
-                  to final inspection. Our commitment to zero-defect manufacturing ensures that every yard 
-                  meets our exacting standards.
+                  {t('aboutPage.manufacturing.production.paragraph2')}
                 </p>
                 <p>
-                  With a production capacity of 2 million yards annually, we can fulfill large orders 
-                  while maintaining the flexibility to handle specialized small-batch requests.
+                  {t('aboutPage.manufacturing.production.paragraph3')}
                 </p>
               </div>
             </div>
@@ -262,17 +252,13 @@ const AboutPage: React.FC = () => {
               />
             </div>
             <div className="lg:order-1 space-y-6">
-              <h3 className="font-serif font-semibold text-3xl text-soft-gold mb-6">Quality Assurance</h3>
+              <h3 className="font-serif font-semibold text-3xl text-soft-gold mb-6">{t('aboutPage.manufacturing.quality.title')}</h3>
               <div className="space-y-4 font-sans text-pure-white/90 leading-relaxed">
                 <p>
-                  Every fabric undergoes rigorous testing including tensile strength, colorfastness, 
-                  dimensional stability, and pattern accuracy. Our laboratory is equipped with the 
-                  latest testing equipment to ensure compliance with international standards.
+                  {t('aboutPage.manufacturing.quality.paragraph1')}
                 </p>
                 <p>
-                  Our quality assurance team includes textile engineers and experienced craftsmen who 
-                  inspect each production run. This dual approach combines technical precision with 
-                  the trained eye of seasoned professionals.
+                  {t('aboutPage.manufacturing.quality.paragraph2')}
                 </p>
               </div>
               <img
@@ -290,10 +276,10 @@ const AboutPage: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="font-serif font-bold text-4xl text-soft-charcoal mb-6">
-              Global Capabilities
+              {t('aboutPage.capabilities.title')}
             </h2>
             <p className="font-sans text-lg text-medium-gray max-w-3xl mx-auto leading-relaxed">
-              From design conception to delivery, we provide comprehensive textile solutions worldwide.
+              {t('aboutPage.capabilities.description')}
             </p>
           </div>
 
@@ -322,10 +308,10 @@ const AboutPage: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="font-serif font-bold text-4xl text-soft-charcoal mb-6">
-              Leadership Team
+              {t('aboutPage.team.title')}
             </h2>
             <p className="font-sans text-lg text-medium-gray max-w-3xl mx-auto leading-relaxed">
-              Meet the experts who guide our vision and drive our commitment to excellence.
+              {t('aboutPage.team.description')}
             </p>
           </div>
 
@@ -364,12 +350,10 @@ const AboutPage: React.FC = () => {
                 <Eye className="w-12 h-12 text-soft-charcoal" />
               </div>
               <h2 className="font-serif font-bold text-4xl text-soft-charcoal mb-6">
-                Our Vision
+                {t('aboutPage.vision.title')}
               </h2>
               <p className="font-sans text-lg text-soft-charcoal/80 leading-relaxed">
-                To be the world's most respected creator of premium jacquard fabrics, 
-                setting the standard for quality, innovation, and sustainability in the 
-                global textile industry.
+                {t('aboutPage.vision.description')}
               </p>
             </div>
             <div className="text-center lg:text-left">
@@ -377,12 +361,10 @@ const AboutPage: React.FC = () => {
                 <Target className="w-12 h-12 text-soft-charcoal" />
               </div>
               <h2 className="font-serif font-bold text-4xl text-soft-charcoal mb-6">
-                Our Mission
+                {t('aboutPage.mission.title')}
               </h2>
               <p className="font-sans text-lg text-soft-charcoal/80 leading-relaxed">
-                To empower designers and manufacturers worldwide with exceptional jacquard fabrics 
-                that inspire creativity, enhance products, and contribute to a more sustainable 
-                textile future.
+                {t('aboutPage.mission.description')}
               </p>
             </div>
           </div>
@@ -394,10 +376,10 @@ const AboutPage: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="font-serif font-bold text-4xl mb-6">
-              Awards & Recognition
+              {t('aboutPage.awards.title')}
             </h2>
             <p className="font-sans text-lg text-pure-white/90 max-w-3xl mx-auto leading-relaxed">
-              Our commitment to excellence has been recognized by industry leaders worldwide.
+              {t('aboutPage.awards.description')}
             </p>
           </div>
 

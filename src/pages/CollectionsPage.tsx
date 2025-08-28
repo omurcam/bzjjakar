@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Search, Download, Mail } from 'lucide-react';
 
 interface Collection {
@@ -18,6 +19,7 @@ interface Collection {
 }
 
 const CollectionsPage: React.FC = () => {
+  const { t } = useTranslation();
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCollection, setSelectedCollection] = useState<Collection | null>(null);
@@ -25,104 +27,104 @@ const CollectionsPage: React.FC = () => {
   const collections: Collection[] = [
     {
       id: 'floral-01',
-      name: 'Floral Collection',
+      name: t('collectionsPage.collections.floral.name'),
       image: '/images/floral_jacquard.png',
-      description: 'Exquisite botanical patterns inspired by nature\'s finest designs. Each piece features intricate floral motifs that bring elegance and sophistication to any creation.',
-      features: ['Hand-drawn botanical patterns', 'Multiple colorways available', 'Fade-resistant dyes', 'Premium weave construction'],
-      applications: ['Evening gowns', 'Luxury blazers', 'Premium curtains', 'Upholstery', 'Bridal wear'],
+      description: t('collectionsPage.collections.floral.description'),
+      features: t('collectionsPage.collections.floral.features', { returnObjects: true }) as string[],
+      applications: t('collectionsPage.collections.floral.applications', { returnObjects: true }) as string[],
       specifications: {
-        composition: '60% Silk, 40% Cotton',
-        weight: '280 GSM',
-        width: '150cm',
-        care: 'Dry clean recommended'
+        composition: t('collectionsPage.collections.floral.composition'),
+        weight: t('collectionsPage.collections.floral.weight'),
+        width: t('collectionsPage.collections.floral.width'),
+        care: t('collectionsPage.collections.floral.care')
       },
       category: 'floral'
     },
     {
       id: 'geometric-01',
-      name: 'Geometric Collection',
+      name: t('collectionsPage.collections.geometric.name'),
       image: '/images/geometric_jacquard.png',
-      description: 'Contemporary geometric patterns for modern fashion and interior design. Clean lines and sophisticated shapes create timeless appeal.',
-      features: ['Modern geometric designs', 'Precision weaving', 'Customizable patterns', 'Colorfast technology'],
-      applications: ['Business suits', 'Modern jackets', 'Contemporary furniture', 'Wall panels', 'Fashion accessories'],
+      description: t('collectionsPage.collections.geometric.description'),
+      features: t('collectionsPage.collections.geometric.features', { returnObjects: true }) as string[],
+      applications: t('collectionsPage.collections.geometric.applications', { returnObjects: true }) as string[],
       specifications: {
-        composition: '70% Wool, 30% Polyester',
-        weight: '320 GSM',
-        width: '145cm',
-        care: 'Professional cleaning'
+        composition: t('collectionsPage.collections.geometric.composition'),
+        weight: t('collectionsPage.collections.geometric.weight'),
+        width: t('collectionsPage.collections.geometric.width'),
+        care: t('collectionsPage.collections.geometric.care')
       },
       category: 'geometric'
     },
     {
       id: 'modern-01',
-      name: 'Modern Collection',
+      name: t('collectionsPage.collections.modern.name'),
       image: '/images/modern_jacquard.png',
-      description: 'Fashion-forward designs that capture contemporary trends while maintaining timeless sophistication. Perfect for urban lifestyle brands.',
-      features: ['Trend-forward patterns', 'Urban-inspired designs', 'Versatile styling options', 'Durable construction'],
-      applications: ['Streetwear', 'Urban fashion', 'Modern interiors', 'Tech wear', 'Contemporary accessories'],
+      description: t('collectionsPage.collections.modern.description'),
+      features: t('collectionsPage.collections.modern.features', { returnObjects: true }) as string[],
+      applications: t('collectionsPage.collections.modern.applications', { returnObjects: true }) as string[],
       specifications: {
-        composition: '55% Cotton, 45% Polyester',
-        weight: '260 GSM',
-        width: '155cm',
-        care: 'Machine washable'
+        composition: t('collectionsPage.collections.modern.composition'),
+        weight: t('collectionsPage.collections.modern.weight'),
+        width: t('collectionsPage.collections.modern.width'),
+        care: t('collectionsPage.collections.modern.care')
       },
       category: 'modern'
     },
     {
       id: 'luxury-01',
-      name: 'Luxury Collection',
+      name: t('collectionsPage.collections.luxury.name'),
       image: '/images/luxury_jacquard.png',
-      description: 'The pinnacle of textile excellence. Premium materials and exclusive designs for the most discerning clients seeking ultimate luxury.',
-      features: ['Exclusive designs', 'Premium materials', 'Limited editions', 'Bespoke customization'],
-      applications: ['Haute couture', 'Luxury interiors', 'Premium upholstery', 'Executive fashion', 'High-end accessories'],
+      description: t('collectionsPage.collections.luxury.description'),
+      features: t('collectionsPage.collections.luxury.features', { returnObjects: true }) as string[],
+      applications: t('collectionsPage.collections.luxury.applications', { returnObjects: true }) as string[],
       specifications: {
-        composition: '80% Silk, 20% Gold thread',
-        weight: '350 GSM',
-        width: '140cm',
-        care: 'Specialist dry clean only'
+        composition: t('collectionsPage.collections.luxury.composition'),
+        weight: t('collectionsPage.collections.luxury.weight'),
+        width: t('collectionsPage.collections.luxury.width'),
+        care: t('collectionsPage.collections.luxury.care')
       },
       category: 'luxury'
     },
     {
       id: 'silk-01',
-      name: 'Silk Collection',
+      name: t('collectionsPage.collections.silk.name'),
       image: '/images/silk_jacquard.png',
-      description: 'Pure silk jacquards with lustrous finish and exceptional drape. The finest silk fibers woven into stunning patterns that catch and reflect light beautifully.',
-      features: ['100% pure silk', 'Natural luster', 'Exceptional drape', 'Breathable comfort'],
-      applications: ['Luxury scarves', 'Evening wear', 'Premium lingerie', 'Fine home textiles', 'Ceremonial garments'],
+      description: t('collectionsPage.collections.silk.description'),
+      features: t('collectionsPage.collections.silk.features', { returnObjects: true }) as string[],
+      applications: t('collectionsPage.collections.silk.applications', { returnObjects: true }) as string[],
       specifications: {
-        composition: '100% Mulberry Silk',
-        weight: '240 GSM',
-        width: '135cm',
-        care: 'Hand wash or dry clean'
+        composition: t('collectionsPage.collections.silk.composition'),
+        weight: t('collectionsPage.collections.silk.weight'),
+        width: t('collectionsPage.collections.silk.width'),
+        care: t('collectionsPage.collections.silk.care')
       },
       category: 'silk'
     },
     {
       id: 'cotton-01',
-      name: 'Cotton Collection',
+      name: t('collectionsPage.collections.cotton.name'),
       image: '/images/cotton_jacquard.png',
-      description: 'Sustainable organic cotton jacquards perfect for eco-conscious brands. Combining environmental responsibility with exceptional quality and comfort.',
-      features: ['Certified organic cotton', 'Eco-friendly dyes', 'Sustainable production', 'Soft hand feel'],
-      applications: ['Casual wear', 'Children\'s clothing', 'Home textiles', 'Sustainable fashion', 'Eco-luxury items'],
+      description: t('collectionsPage.collections.cotton.description'),
+      features: t('collectionsPage.collections.cotton.features', { returnObjects: true }) as string[],
+      applications: t('collectionsPage.collections.cotton.applications', { returnObjects: true }) as string[],
       specifications: {
-        composition: '100% Organic Cotton',
-        weight: '220 GSM',
-        width: '160cm',
-        care: 'Machine washable'
+        composition: t('collectionsPage.collections.cotton.composition'),
+        weight: t('collectionsPage.collections.cotton.weight'),
+        width: t('collectionsPage.collections.cotton.width'),
+        care: t('collectionsPage.collections.cotton.care')
       },
       category: 'cotton'
     }
   ];
 
   const categories = [
-    { id: 'all', name: 'All Collections' },
-    { id: 'floral', name: 'Floral' },
-    { id: 'geometric', name: 'Geometric' },
-    { id: 'modern', name: 'Modern' },
-    { id: 'luxury', name: 'Luxury' },
-    { id: 'silk', name: 'Silk' },
-    { id: 'cotton', name: 'Cotton' }
+    { id: 'all', name: t('collectionsPage.categories.all') },
+    { id: 'floral', name: t('collectionsPage.categories.floral') },
+    { id: 'geometric', name: t('collectionsPage.categories.geometric') },
+    { id: 'modern', name: t('collectionsPage.categories.modern') },
+    { id: 'luxury', name: t('collectionsPage.categories.luxury') },
+    { id: 'silk', name: t('collectionsPage.categories.silk') },
+    { id: 'cotton', name: t('collectionsPage.categories.cotton') }
   ];
 
   const filteredCollections = collections.filter(collection => {
@@ -143,12 +145,10 @@ const CollectionsPage: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="font-serif font-bold text-6xl sm:text-7xl mb-6 text-soft-charcoal">
-              Our Collections
+              {t('collectionsPage.hero.title')}
             </h1>
             <p className="font-sans text-xl text-medium-gray leading-relaxed">
-              Explore our comprehensive catalog of premium jacquard fabrics. Each collection represents 
-              the perfect fusion of traditional craftsmanship and contemporary design, created for 
-              discerning designers and manufacturers worldwide.
+              {t('collectionsPage.hero.description')}
             </p>
           </div>
         </div>
@@ -166,7 +166,7 @@ const CollectionsPage: React.FC = () => {
               <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-medium-gray w-5 h-5" />
               <input
                 type="text"
-                placeholder="Search collections..."
+                placeholder={t('collectionsPage.search.placeholder')}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-full pl-12 pr-4 py-4 bg-pure-white/70 backdrop-blur-sm border-2 border-light-gray/30 rounded-2xl focus:ring-2 focus:ring-soft-gold/30 focus:border-soft-gold transition-all duration-300 shadow-soft placeholder-medium-gray/60 text-soft-charcoal"
@@ -232,16 +232,16 @@ const CollectionsPage: React.FC = () => {
                   </p>
                   <div className="space-y-2 mb-4">
                     <div className="text-sm">
-                      <span className="font-medium text-soft-charcoal">Composition:</span>
+                      <span className="font-medium text-soft-charcoal">{t('collectionsPage.modal.composition')}:</span>
                       <span className="ml-2 text-medium-gray">{collection.specifications.composition}</span>
                     </div>
                     <div className="text-sm">
-                      <span className="font-medium text-soft-charcoal">Weight:</span>
+                      <span className="font-medium text-soft-charcoal">{t('collectionsPage.modal.weight')}:</span>
                       <span className="ml-2 text-medium-gray">{collection.specifications.weight}</span>
                     </div>
                   </div>
                   <button className="w-full btn-primary shadow-soft hover:shadow-pastel">
-                    View Details
+                    {t('collectionsPage.modal.viewDetails')}
                   </button>
                 </div>
                 {/* Hover border effect */}
@@ -252,8 +252,8 @@ const CollectionsPage: React.FC = () => {
 
           {filteredCollections.length === 0 && (
             <div className="text-center py-16">
-              <h3 className="font-serif text-2xl text-soft-charcoal mb-4">No collections found</h3>
-              <p className="font-sans text-medium-gray">Try adjusting your search criteria or browse all collections.</p>
+              <h3 className="font-serif text-2xl text-soft-charcoal mb-4">{t('collectionsPage.search.noResults')}</h3>
+              <p className="font-sans text-medium-gray">{t('collectionsPage.search.noResultsDesc')}</p>
             </div>
           )}
         </div>
@@ -268,19 +268,19 @@ const CollectionsPage: React.FC = () => {
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <h2 className="font-serif font-bold text-4xl mb-6">
-            Complete Catalog
+            {t('collectionsPage.catalog.title')}
           </h2>
           <p className="font-sans text-xl text-pure-white/90 mb-8 max-w-2xl mx-auto leading-relaxed">
-            Download our comprehensive catalog featuring detailed specifications, pricing, and technical information for all collections.
+            {t('collectionsPage.catalog.description')}
           </p>
           <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
             <button className="btn-primary bg-gradient-accent hover:bg-gradient-soft text-soft-charcoal shadow-pastel hover:shadow-gradient flex items-center space-x-2">
               <Download className="w-5 h-5" />
-              <span>Download PDF Catalog</span>
+              <span>{t('collectionsPage.catalog.downloadPdf')}</span>
             </button>
             <button className="btn-secondary bg-pure-white/10 backdrop-blur-sm border-2 border-pure-white/30 text-pure-white hover:bg-gradient-accent hover:text-soft-charcoal hover:border-transparent flex items-center space-x-2">
               <Mail className="w-5 h-5" />
-              <span>Request Physical Samples</span>
+              <span>{t('collectionsPage.catalog.requestSamples')}</span>
             </button>
           </div>
         </div>
@@ -315,7 +315,7 @@ const CollectionsPage: React.FC = () => {
               
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
-                  <h3 className="font-serif font-semibold text-xl text-soft-charcoal mb-4">Key Features</h3>
+                  <h3 className="font-serif font-semibold text-xl text-soft-charcoal mb-4">{t('collectionsPage.modal.keyFeatures')}</h3>
                   <ul className="space-y-3">
                     {selectedCollection.features.map((feature, index) => (
                       <li key={index} className="flex items-start space-x-3">
@@ -327,7 +327,7 @@ const CollectionsPage: React.FC = () => {
                 </div>
                 
                 <div>
-                  <h3 className="font-serif font-semibold text-xl text-soft-charcoal mb-4">Applications</h3>
+                  <h3 className="font-serif font-semibold text-xl text-soft-charcoal mb-4">{t('collectionsPage.modal.applications')}</h3>
                   <ul className="space-y-3">
                     {selectedCollection.applications.map((application, index) => (
                       <li key={index} className="flex items-start space-x-3">
@@ -340,22 +340,22 @@ const CollectionsPage: React.FC = () => {
               </div>
               
               <div className="mt-8 p-6 bg-gradient-card rounded-2xl border border-light-gray/20">
-                <h3 className="font-serif font-semibold text-xl text-soft-charcoal mb-4">Technical Specifications</h3>
+                <h3 className="font-serif font-semibold text-xl text-soft-charcoal mb-4">{t('collectionsPage.modal.specifications')}</h3>
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="bg-pure-white/50 rounded-xl p-4 backdrop-blur-sm">
-                    <span className="font-medium text-soft-charcoal">Composition:</span>
+                    <span className="font-medium text-soft-charcoal">{t('collectionsPage.modal.composition')}:</span>
                     <span className="ml-2 text-medium-gray">{selectedCollection.specifications.composition}</span>
                   </div>
                   <div className="bg-pure-white/50 rounded-xl p-4 backdrop-blur-sm">
-                    <span className="font-medium text-soft-charcoal">Weight:</span>
+                    <span className="font-medium text-soft-charcoal">{t('collectionsPage.modal.weight')}:</span>
                     <span className="ml-2 text-medium-gray">{selectedCollection.specifications.weight}</span>
                   </div>
                   <div className="bg-pure-white/50 rounded-xl p-4 backdrop-blur-sm">
-                    <span className="font-medium text-soft-charcoal">Width:</span>
+                    <span className="font-medium text-soft-charcoal">{t('collectionsPage.modal.width')}:</span>
                     <span className="ml-2 text-medium-gray">{selectedCollection.specifications.width}</span>
                   </div>
                   <div className="bg-pure-white/50 rounded-xl p-4 backdrop-blur-sm">
-                    <span className="font-medium text-soft-charcoal">Care:</span>
+                    <span className="font-medium text-soft-charcoal">{t('collectionsPage.modal.care')}:</span>
                     <span className="ml-2 text-medium-gray">{selectedCollection.specifications.care}</span>
                   </div>
                 </div>
@@ -364,11 +364,11 @@ const CollectionsPage: React.FC = () => {
               <div className="mt-8 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
                 <button className="flex-1 btn-primary shadow-soft hover:shadow-pastel flex items-center justify-center space-x-2">
                   <Mail className="w-5 h-5" />
-                  <span>Inquire About This Collection</span>
+                  <span>{t('collectionsPage.modal.inquire')}</span>
                 </button>
                 <button className="flex-1 btn-secondary on-light flex items-center justify-center space-x-2">
                   <Download className="w-5 h-5" />
-                  <span>Request Samples</span>
+                  <span>{t('collectionsPage.modal.requestSamples')}</span>
                 </button>
               </div>
             </div>

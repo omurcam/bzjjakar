@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { MapPin, Phone, Mail, Clock, Globe, Send, User, MessageCircle, Building, Briefcase } from 'lucide-react';
 
 interface ContactForm {
@@ -13,6 +14,7 @@ interface ContactForm {
 }
 
 const ContactPage: React.FC = () => {
+  const { t } = useTranslation();
   const [contactForm, setContactForm] = useState<ContactForm>({
     inquiryType: 'general',
     name: '',
@@ -121,11 +123,10 @@ const ContactPage: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="font-serif font-bold text-6xl sm:text-7xl mb-6 text-soft-charcoal">
-              Contact Us
+              {t('contactPage.hero.title')}
             </h1>
             <p className="font-sans text-xl text-medium-gray leading-relaxed mb-8">
-              Connect with our global team to discuss your textile needs. From wholesale inquiries 
-              to custom design projects, we're here to support your business.
+              {t('contactPage.hero.description')}
             </p>
             <div className="grid md:grid-cols-3 gap-8">
               <div className="text-center bg-pure-white/50 backdrop-blur-sm rounded-2xl p-6 shadow-soft">

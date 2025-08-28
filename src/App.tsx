@@ -9,6 +9,7 @@ import AboutPage from './pages/AboutPage';
 import SustainabilityPage from './pages/SustainabilityPage';
 import WholesalePage from './pages/WholesalePage';
 import ContactPage from './pages/ContactPage';
+import './i18n'; // Initialize i18n
 import './App.css';
 
 function App() {

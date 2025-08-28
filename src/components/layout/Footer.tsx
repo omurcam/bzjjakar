@@ -1,15 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
 
 const Footer: React.FC = () => {
+  const { t } = useTranslation();
+  
   const quickLinks = [
-    { name: 'Home', href: '/' },
-    { name: 'Collections', href: '/collections' },
-    { name: 'About Us', href: '/about' },
-    { name: 'Sustainability', href: '/sustainability' },
-    { name: 'Wholesale', href: '/wholesale' },
-    { name: 'Contact', href: '/contact' },
+    { name: t('nav.home'), href: '/' },
+    { name: t('nav.collections'), href: '/collections' },
+    { name: t('nav.about'), href: '/about' },
+    { name: t('nav.sustainability'), href: '/sustainability' },
+    { name: t('nav.wholesale'), href: '/wholesale' },
+    { name: t('nav.contact'), href: '/contact' },
   ];
 
   return (
@@ -25,24 +28,23 @@ const Footer: React.FC = () => {
               BZJ Jakar
             </h3>
             <p className="text-lg mb-6 max-w-md text-pure-white/90">
-              Elegance in Every Thread
+              {t('footer.subtitle')}
             </p>
             <p className="text-sm opacity-80 max-w-md leading-relaxed">
-              Premium jacquard fabrics for B2B wholesale buyers and designers worldwide. 
-              Crafting luxury textiles with unmatched quality and sophistication.
+              {t('footer.description')}
             </p>
             
             {/* Newsletter Subscription */}
             <div className="mt-8">
-              <h4 className="font-sans font-medium text-lg mb-4">Stay Updated</h4>
+              <h4 className="font-sans font-medium text-lg mb-4">{t('footer.stayUpdated')}</h4>
               <div className="flex flex-col sm:flex-row gap-3">
                 <input
                   type="email"
-                  placeholder="Enter your email"
+                  placeholder={t('footer.emailPlaceholder')}
                   className="flex-1 px-4 py-3 rounded-xl bg-pure-white/10 backdrop-blur-sm text-pure-white border border-pure-white/20 focus:border-soft-gold focus:outline-none focus:ring-2 focus:ring-soft-gold/20 placeholder-pure-white/60 transition-all duration-300"
                 />
                 <button className="btn-primary bg-gradient-accent hover:bg-gradient-soft">
-                  Subscribe
+                  {t('footer.subscribe')}
                 </button>
               </div>
             </div>
@@ -50,7 +52,7 @@ const Footer: React.FC = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-sans font-medium text-lg mb-6 bg-gradient-to-r from-soft-gold to-gentle-rose bg-clip-text text-transparent">Quick Links</h4>
+            <h4 className="font-sans font-medium text-lg mb-6 bg-gradient-to-r from-soft-gold to-gentle-rose bg-clip-text text-transparent">{t('footer.quickLinks')}</h4>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.name}>
@@ -68,7 +70,7 @@ const Footer: React.FC = () => {
 
           {/* Contact Information */}
           <div>
-            <h4 className="font-sans font-medium text-lg mb-6 bg-gradient-to-r from-powder-blue to-mint-green bg-clip-text text-transparent">Contact Info</h4>
+            <h4 className="font-sans font-medium text-lg mb-6 bg-gradient-to-r from-powder-blue to-mint-green bg-clip-text text-transparent">{t('footer.contactInfo')}</h4>
             <div className="space-y-4">
               <div className="flex items-center space-x-3 group">
                 <div className="p-2 rounded-full bg-gradient-accent/20 group-hover:bg-gradient-accent/30 transition-colors duration-300">
@@ -92,7 +94,7 @@ const Footer: React.FC = () => {
 
             {/* Social Media */}
             <div className="mt-6">
-              <h5 className="font-sans font-medium text-sm mb-3 text-pure-white/90">Follow Us</h5>
+              <h5 className="font-sans font-medium text-sm mb-3 text-pure-white/90">{t('footer.followUs')}</h5>
               <div className="flex space-x-4">
                 <a
                   href="#"
@@ -116,15 +118,15 @@ const Footer: React.FC = () => {
         {/* Bottom Bar */}
         <div className="border-t border-pure-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-pure-white/60">
-            © 2025 BZJ Jakar. All rights reserved.
+            {t('footer.copyright')}
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <a href="#" className="text-sm text-pure-white/60 hover:text-soft-gold transition-colors duration-300 relative group">
-              Privacy Policy
+              {t('footer.privacyPolicy')}
               <span className="absolute inset-x-0 bottom-0 h-px bg-soft-gold scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
             </a>
             <a href="#" className="text-sm text-pure-white/60 hover:text-soft-gold transition-colors duration-300 relative group">
-              Terms of Service
+              {t('footer.terms')}
               <span className="absolute inset-x-0 bottom-0 h-px bg-soft-gold scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
             </a>
           </div>

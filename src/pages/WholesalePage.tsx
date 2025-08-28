@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Package, Truck, Globe, CreditCard, FileText, Phone, Mail, Check, Star, Users, Award } from 'lucide-react';
 
 interface PricingTier {
@@ -11,6 +12,7 @@ interface PricingTier {
 }
 
 const WholesalePage: React.FC = () => {
+  const { t } = useTranslation();
   const [selectedTier, setSelectedTier] = useState<string>('standard');
   const [inquiryForm, setInquiryForm] = useState({
     companyName: '',
@@ -164,27 +166,26 @@ const WholesalePage: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="font-serif font-bold text-5xl sm:text-6xl mb-6">
-              Wholesale Solutions
+              {t('wholesalePage.hero.title')}
             </h1>
             <p className="font-sans text-xl text-pure-white/90 leading-relaxed mb-8">
-              Partner with BZJ Jakar for premium jacquard fabrics at wholesale prices. 
-              Designed for fashion houses, interior designers, and textile manufacturers worldwide.
+              {t('wholesalePage.hero.description')}
             </p>
             <div className="grid md:grid-cols-3 gap-8 text-center">
               <div>
                 <Package className="w-12 h-12 text-soft-gold mx-auto mb-3" />
-                <div className="font-serif font-bold text-2xl text-soft-gold">50m+</div>
-                <div className="font-sans text-pure-white/80">Minimum Order</div>
+                <div className="font-serif font-bold text-2xl text-soft-gold">{t('wholesalePage.hero.stats.minOrder.number')}</div>
+                <div className="font-sans text-pure-white/80">{t('wholesalePage.hero.stats.minOrder.label')}</div>
               </div>
               <div>
                 <Globe className="w-12 h-12 text-soft-gold mx-auto mb-3" />
-                <div className="font-serif font-bold text-2xl text-soft-gold">50+</div>
-                <div className="font-sans text-pure-white/80">Countries Served</div>
+                <div className="font-serif font-bold text-2xl text-soft-gold">{t('wholesalePage.hero.stats.countries.number')}</div>
+                <div className="font-sans text-pure-white/80">{t('wholesalePage.hero.stats.countries.label')}</div>
               </div>
               <div>
                 <Users className="w-12 h-12 text-soft-gold mx-auto mb-3" />
-                <div className="font-serif font-bold text-2xl text-soft-gold">5000+</div>
-                <div className="font-sans text-pure-white/80">B2B Clients</div>
+                <div className="font-serif font-bold text-2xl text-soft-gold">{t('wholesalePage.hero.stats.clients.number')}</div>
+                <div className="font-sans text-pure-white/80">{t('wholesalePage.hero.stats.clients.label')}</div>
               </div>
             </div>
           </div>
@@ -196,11 +197,10 @@ const WholesalePage: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="font-serif font-bold text-4xl text-soft-charcoal mb-6">
-              Wholesale Pricing Tiers
+              {t('wholesalePage.pricing.title')}
             </h2>
             <p className="font-sans text-lg text-medium-gray max-w-3xl mx-auto leading-relaxed">
-              Flexible pricing structure designed to accommodate businesses of all sizes, 
-              from emerging designers to established manufacturers.
+              {t('wholesalePage.pricing.description')}
             </p>
           </div>
 

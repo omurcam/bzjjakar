@@ -1,7 +1,9 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Leaf, Droplets, Recycle, Award, Target, TrendingUp, Users, Globe } from 'lucide-react';
 
 const SustainabilityPage: React.FC = () => {
+  const { t } = useTranslation();
   const initiatives = [
     {
       icon: <Leaf className="w-12 h-12 text-mint-green" />,
@@ -112,11 +114,10 @@ const SustainabilityPage: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="font-serif font-bold text-5xl sm:text-6xl text-soft-charcoal mb-6">
-              Sustainability Commitment
+              {t('sustainabilityPage.hero.title')}
             </h1>
             <p className="font-sans text-xl text-medium-gray leading-relaxed mb-8">
-              Leading the textile industry toward a more sustainable future through innovative 
-              practices, responsible sourcing, and environmental stewardship.
+              {t('sustainabilityPage.hero.description')}
             </p>
             <div className="flex justify-center">
               <Leaf className="w-16 h-16 text-mint-green" />
@@ -130,10 +131,10 @@ const SustainabilityPage: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="font-serif font-bold text-4xl text-soft-charcoal mb-6">
-              Our Environmental Impact
+              {t('sustainabilityPage.impact.title')}
             </h2>
             <p className="font-sans text-lg text-medium-gray max-w-3xl mx-auto leading-relaxed">
-              Measurable results from our comprehensive sustainability initiatives demonstrate our commitment to environmental responsibility.
+              {t('sustainabilityPage.impact.description')}
             </p>
           </div>
 
@@ -158,10 +159,10 @@ const SustainabilityPage: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="font-serif font-bold text-4xl text-soft-charcoal mb-6">
-              Sustainability Initiatives
+              {t('sustainabilityPage.initiatives.title')}
             </h2>
             <p className="font-sans text-lg text-medium-gray max-w-3xl mx-auto leading-relaxed">
-              Comprehensive programs addressing every aspect of our environmental footprint.
+              {t('sustainabilityPage.initiatives.description')}
             </p>
           </div>
 

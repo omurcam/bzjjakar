@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Menu, X } from 'lucide-react';
+import LanguageSwitcher from '../LanguageSwitcher';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,12 +20,12 @@ const Header: React.FC = () => {
   const location = useLocation();
 
   const navLinks = [
-    { name: 'Home', href: '/' },
-    { name: 'Collections', href: '/collections' },
-    { name: 'About Us', href: '/about' },
-    { name: 'Sustainability', href: '/sustainability' },
-    { name: 'Wholesale', href: '/wholesale' },
-    { name: 'Contact', href: '/contact' },
+    { name: t('nav.home'), href: '/' },
+    { name: t('nav.collections'), href: '/collections' },
+    { name: t('nav.about'), href: '/about' },
+    { name: t('nav.sustainability'), href: '/sustainability' },
+    { name: t('nav.wholesale'), href: '/wholesale' },
+    { name: t('nav.contact'), href: '/contact' },
   ];
 
   return (
@@ -47,24 +50,27 @@ const Header: React.FC = () => {
             </div>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex space-x-1">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  to={link.href}
-                  className={`relative px-4 py-2 rounded-full font-sans text-base font-medium transition-all duration-300 group ${
-                    location.pathname === link.href
-                      ? 'bg-gradient-primary text-soft-charcoal shadow-soft'
-                      : 'text-soft-charcoal hover:bg-gradient-card hover:text-soft-charcoal'
-                  }`}
-                >
-                  {link.name}
-                  <span className={`absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-accent transition-all duration-300 transform -translate-x-1/2 ${
-                    location.pathname === link.href ? 'w-3/4' : 'group-hover:w-3/4'
-                  }`}></span>
-                </Link>
-              ))}
-            </nav>
+            <div className="hidden md:flex items-center space-x-4">
+              <nav className="flex space-x-1">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.name}
+                    to={link.href}
+                    className={`relative px-4 py-2 rounded-full font-sans text-base font-medium transition-all duration-300 group ${
+                      location.pathname === link.href
+                        ? 'bg-gradient-primary text-soft-charcoal shadow-soft'
+                        : 'text-soft-charcoal hover:bg-gradient-card hover:text-soft-charcoal'
+                    }`}
+                  >
+                    {link.name}
+                    <span className={`absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-accent transition-all duration-300 transform -translate-x-1/2 ${
+                      location.pathname === link.href ? 'w-3/4' : 'group-hover:w-3/4'
+                    }`}></span>
+                  </Link>
+                ))}
+              </nav>
+              <LanguageSwitcher />
+            </div>
 
             {/* Mobile menu button */}
             <div className="md:hidden">
@@ -103,6 +109,9 @@ const Header: React.FC = () => {
                     {link.name}
                   </Link>
                 ))}
+                <div className="flex justify-center mt-4 pt-4 border-t border-light-gray/30">
+                  <LanguageSwitcher />
+                </div>
               </div>
             </div>
           </div>

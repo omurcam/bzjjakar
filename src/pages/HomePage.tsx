@@ -1,51 +1,54 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { ArrowDown, Star, Users, Globe, Award, History, Leaf, Package, Mail, ArrowRight } from 'lucide-react';
 
 const HomePage: React.FC = () => {
+  const { t } = useTranslation();
+  
   const featuredCollections = [
     {
-      name: 'Floral Collection',
+      name: t('collections.floral.name'),
       image: '/images/floral_jacquard.png',
-      description: 'Elegant botanical patterns for sophisticated designs'
+      description: t('collections.floral.description')
     },
     {
-      name: 'Geometric Collection',
+      name: t('collections.geometric.name'),
       image: '/images/geometric_jacquard.png',
-      description: 'Modern geometric patterns for contemporary fashion'
+      description: t('collections.geometric.description')
     },
     {
-      name: 'Luxury Collection',
+      name: t('collections.luxury.name'),
       image: '/images/luxury_jacquard.png',
-      description: 'Premium materials for exclusive high-end creations'
+      description: t('collections.luxury.description')
     },
     {
-      name: 'Silk Collection',
+      name: t('collections.silk.name'),
       image: '/images/silk_jacquard.png',
-      description: 'Finest silk jacquards with lustrous finish'
+      description: t('collections.silk.description')
     }
   ];
 
   const highlights = [
     {
       icon: <Users className="w-8 h-8 text-soft-charcoal" />,
-      title: '5000+ Clients',
-      description: 'Trusted by designers worldwide'
+      title: t('highlights.clients'),
+      description: t('highlights.clientsDesc')
     },
     {
       icon: <Globe className="w-8 h-8 text-soft-charcoal" />,
-      title: '50+ Countries',
-      description: 'Global shipping and distribution'
+      title: t('highlights.countries'),
+      description: t('highlights.countriesDesc')
     },
     {
       icon: <Award className="w-8 h-8 text-soft-charcoal" />,
-      title: '30+ Years',
-      description: 'Heritage in textile manufacturing'
+      title: t('highlights.years'),
+      description: t('highlights.yearsDesc')
     },
     {
       icon: <Star className="w-8 h-8 text-soft-charcoal" />,
-      title: 'Premium Quality',
-      description: 'Award-winning fabric collections'
+      title: t('highlights.quality'),
+      description: t('highlights.qualityDesc')
     }
   ];
 
@@ -100,24 +103,23 @@ const HomePage: React.FC = () => {
         
         <div className="relative z-20 text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto py-8 sm:py-0">
           <h1 className="font-serif font-bold text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-ivory mb-4 sm:mb-6 tracking-wide leading-tight">
-            BZJ Jakar
+            {t('hero.title')}
           </h1>
           
           <p className="font-serif text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl text-ivory mb-8 sm:mb-12 opacity-95 tracking-wide">
-            Elegance in Every Thread
+            {t('hero.subtitle')}
           </p>
           
           <p className="font-sans text-base sm:text-lg text-ivory/90 mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-2">
-            Premium jacquard fabrics crafted for discerning B2B wholesale buyers and designers worldwide. 
-            Discover luxury textiles that define sophistication.
+            {t('hero.description')}
           </p>
           
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6 mb-8 sm:mb-16 px-4">
             <Link to="/collections" className="btn-primary shadow-pastel hover:shadow-gradient w-full sm:w-auto min-h-[44px] flex items-center justify-center">
-              Explore Collections
+              {t('hero.exploreCollections')}
             </Link>
             <Link to="/wholesale" className="btn-secondary on-dark w-full sm:w-auto min-h-[44px] flex items-center justify-center">
-              Request a Quote
+              {t('hero.requestQuote')}
             </Link>
           </div>
           
@@ -138,10 +140,10 @@ const HomePage: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
             <h2 className="font-serif font-bold text-5xl sm:text-6xl text-soft-charcoal mb-6">
-              Featured Collections
+              {t('collections.title')}
             </h2>
             <p className="font-sans text-lg text-medium-gray max-w-3xl mx-auto leading-relaxed">
-              Discover our most popular fabric collections, carefully curated for modern designers and manufacturers.
+              {t('collections.description')}
             </p>
           </div>
 
@@ -176,7 +178,7 @@ const HomePage: React.FC = () => {
 
           <div className="text-center">
             <Link to="/collections" className="btn-primary shadow-pastel hover:shadow-gradient">
-              View All Collections
+              {t('collections.viewAll')}
             </Link>
           </div>
         </div>
@@ -191,10 +193,10 @@ const HomePage: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
             <h2 className="font-serif font-bold text-5xl sm:text-6xl text-soft-charcoal mb-6">
-              Why Choose BZJ Jakar
+              {t('highlights.title')}
             </h2>
             <p className="font-sans text-lg text-medium-gray max-w-3xl mx-auto leading-relaxed">
-              Three decades of textile excellence, serving designers and manufacturers across the globe.
+              {t('highlights.subtitle')}
             </p>
           </div>
 
@@ -233,24 +235,20 @@ const HomePage: React.FC = () => {
               <div className="flex items-center mb-6">
                 <History className="w-10 h-10 text-soft-gold mr-4" />
                 <h2 className="font-serif font-bold text-4xl text-soft-charcoal">
-                  Our Heritage
+                  {t('about.title')}
                 </h2>
               </div>
               <div className="space-y-6 font-sans text-lg text-medium-gray leading-relaxed">
                 <p>
-                  Founded in 1995, BZJ Jakar began as a vision to bridge the gap between traditional 
-                  textile craftsmanship and modern fashion needs. What started as a small workshop has 
-                  evolved into a global leader in premium jacquard fabric manufacturing.
+                  {t('about.description1')}
                 </p>
                 <p>
-                  Today, we serve over 5,000 clients across 50+ countries, from emerging designers to 
-                  established luxury fashion houses. Our commitment to excellence drives every aspect 
-                  of our business.
+                  {t('about.description2')}
                 </p>
               </div>
               <div className="mt-8">
                 <Link to="/about" className="btn-primary shadow-soft hover:shadow-pastel flex items-center space-x-2 inline-flex">
-                  <span>Learn Our Story</span>
+                  <span>{t('about.learnStory')}</span>
                   <ArrowRight className="w-5 h-5" />
                 </Link>
               </div>
@@ -258,23 +256,23 @@ const HomePage: React.FC = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-card rounded-2xl transform rotate-3"></div>
               <div className="relative bg-gradient-card rounded-2xl p-8 shadow-pastel border border-light-gray/20">
-                <h3 className="font-serif font-bold text-2xl text-soft-charcoal mb-6">30 Years of Excellence</h3>
+                <h3 className="font-serif font-bold text-2xl text-soft-charcoal mb-6">{t('about.timeline.title')}</h3>
                 <div className="space-y-4">
                   <div className="flex items-center space-x-4">
                     <div className="w-3 h-3 bg-soft-gold rounded-full"></div>
-                    <span className="font-sans text-medium-gray">1995: Company Founded</span>
+                    <span className="font-sans text-medium-gray">1995: {t('about.timeline.founded')}</span>
                   </div>
                   <div className="flex items-center space-x-4">
                     <div className="w-3 h-3 bg-soft-gold rounded-full"></div>
-                    <span className="font-sans text-medium-gray">2000: First Export Markets</span>
+                    <span className="font-sans text-medium-gray">2000: {t('about.timeline.export')}</span>
                   </div>
                   <div className="flex items-center space-x-4">
                     <div className="w-3 h-3 bg-soft-gold rounded-full"></div>
-                    <span className="font-sans text-medium-gray">2010: Global Expansion</span>
+                    <span className="font-sans text-medium-gray">2010: {t('about.timeline.expansion')}</span>
                   </div>
                   <div className="flex items-center space-x-4">
                     <div className="w-3 h-3 bg-soft-gold rounded-full"></div>
-                    <span className="font-sans text-medium-gray">2025: Industry Leadership</span>
+                    <span className="font-sans text-medium-gray">2025: {t('about.timeline.leadership')}</span>
                   </div>
                 </div>
               </div>
@@ -293,12 +291,11 @@ const HomePage: React.FC = () => {
             <div className="flex items-center justify-center mb-6">
               <Leaf className="w-12 h-12 text-mint-green mr-4" />
               <h2 className="font-serif font-bold text-4xl text-soft-charcoal">
-                Sustainability Commitment
+                {t('sustainability.title')}
               </h2>
             </div>
             <p className="font-sans text-lg text-medium-gray max-w-3xl mx-auto leading-relaxed">
-              Leading the textile industry toward a more sustainable future through innovative practices, 
-              responsible sourcing, and environmental stewardship.
+              {t('sustainability.description')}
             </p>
           </div>
 
@@ -307,28 +304,28 @@ const HomePage: React.FC = () => {
               <div className="w-16 h-16 bg-mint-green/20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Leaf className="w-8 h-8 text-mint-green" />
               </div>
-              <div className="font-serif font-bold text-2xl text-mint-green mb-2">85%</div>
-              <p className="font-sans text-medium-gray">Sustainable materials sourced</p>
+              <div className="font-serif font-bold text-2xl text-mint-green mb-2">{t('sustainability.sustainable')}</div>
+              <p className="font-sans text-medium-gray">{t('sustainability.sustainableDesc')}</p>
             </div>
             <div className="text-center bg-pure-white/70 backdrop-blur-sm rounded-2xl p-6 shadow-soft border border-light-gray/20">
               <div className="w-16 h-16 bg-powder-blue/20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Globe className="w-8 h-8 text-powder-blue" />
               </div>
-              <div className="font-serif font-bold text-2xl text-powder-blue mb-2">60%</div>
-              <p className="font-sans text-medium-gray">Water usage reduction</p>
+              <div className="font-serif font-bold text-2xl text-powder-blue mb-2">{t('sustainability.water')}</div>
+              <p className="font-sans text-medium-gray">{t('sustainability.waterDesc')}</p>
             </div>
             <div className="text-center bg-pure-white/70 backdrop-blur-sm rounded-2xl p-6 shadow-soft border border-light-gray/20">
               <div className="w-16 h-16 bg-soft-gold/20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Award className="w-8 h-8 text-soft-gold" />
               </div>
-              <div className="font-serif font-bold text-2xl text-soft-gold mb-2">95%</div>
-              <p className="font-sans text-medium-gray">Waste recycled or repurposed</p>
+              <div className="font-serif font-bold text-2xl text-soft-gold mb-2">{t('sustainability.waste')}</div>
+              <p className="font-sans text-medium-gray">{t('sustainability.wasteDesc')}</p>
             </div>
           </div>
 
           <div className="text-center">
             <Link to="/sustainability" className="btn-primary shadow-soft hover:shadow-pastel flex items-center space-x-2 inline-flex">
-              <span>Discover Our Impact</span>
+              <span>{t('sustainability.discoverImpact')}</span>
               <ArrowRight className="w-5 h-5" />
             </Link>
           </div>
@@ -346,36 +343,35 @@ const HomePage: React.FC = () => {
             <div className="flex items-center justify-center mb-6">
               <Package className="w-12 h-12 text-soft-charcoal mr-4" />
               <h2 className="font-serif font-bold text-4xl text-soft-charcoal">
-                Wholesale Solutions
+                {t('wholesale.title')}
               </h2>
             </div>
             <p className="font-sans text-lg text-soft-charcoal/80 max-w-3xl mx-auto leading-relaxed">
-              Partner with BZJ Jakar for premium jacquard fabrics at wholesale prices. 
-              Designed for fashion houses, interior designers, and textile manufacturers worldwide.
+              {t('wholesale.description')}
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 mb-12">
             <div className="text-center bg-pure-white/70 backdrop-blur-sm rounded-2xl p-6 shadow-soft border border-light-gray/20">
               <Package className="w-12 h-12 text-soft-charcoal mx-auto mb-4" />
-              <div className="font-serif font-bold text-2xl text-soft-charcoal">50m+</div>
-              <div className="font-sans text-medium-gray">Minimum Order</div>
+              <div className="font-serif font-bold text-2xl text-soft-charcoal">{t('wholesale.minOrder')}</div>
+              <div className="font-sans text-medium-gray">{t('wholesale.minOrderDesc')}</div>
             </div>
             <div className="text-center bg-pure-white/70 backdrop-blur-sm rounded-2xl p-6 shadow-soft border border-light-gray/20">
               <Globe className="w-12 h-12 text-soft-charcoal mx-auto mb-4" />
-              <div className="font-serif font-bold text-2xl text-soft-charcoal">50+</div>
-              <div className="font-sans text-medium-gray">Countries Served</div>
+              <div className="font-serif font-bold text-2xl text-soft-charcoal">{t('wholesale.countriesServed')}</div>
+              <div className="font-sans text-medium-gray">{t('wholesale.countriesServedDesc')}</div>
             </div>
             <div className="text-center bg-pure-white/70 backdrop-blur-sm rounded-2xl p-6 shadow-soft border border-light-gray/20">
               <Users className="w-12 h-12 text-soft-charcoal mx-auto mb-4" />
-              <div className="font-serif font-bold text-2xl text-soft-charcoal">5000+</div>
-              <div className="font-sans text-medium-gray">B2B Clients</div>
+              <div className="font-serif font-bold text-2xl text-soft-charcoal">{t('wholesale.clients')}</div>
+              <div className="font-sans text-medium-gray">{t('wholesale.clientsDesc')}</div>
             </div>
           </div>
 
           <div className="text-center">
             <Link to="/wholesale" className="btn-primary bg-gradient-to-r from-soft-charcoal to-medium-gray text-pure-white hover:from-medium-gray hover:to-soft-charcoal shadow-gradient flex items-center space-x-2 inline-flex">
-              <span>Get Wholesale Pricing</span>
+              <span>{t('wholesale.getWholesalePricing')}</span>
               <ArrowRight className="w-5 h-5" />
             </Link>
           </div>
@@ -392,12 +388,11 @@ const HomePage: React.FC = () => {
             <div className="flex items-center justify-center mb-6">
               <Mail className="w-12 h-12 text-soft-charcoal mr-4" />
               <h2 className="font-serif font-bold text-4xl text-soft-charcoal">
-                Global Support
+                {t('contact.title')}
               </h2>
             </div>
             <p className="font-sans text-lg text-medium-gray max-w-3xl mx-auto leading-relaxed">
-              Connect with our international team across four regional offices. Expert support 
-              available 24/7 to assist with your textile needs and business requirements.
+              {t('contact.description')}
             </p>
           </div>
 
@@ -406,35 +401,35 @@ const HomePage: React.FC = () => {
               <div className="w-16 h-16 bg-soft-charcoal/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Globe className="w-8 h-8 text-soft-charcoal" />
               </div>
-              <div className="font-serif font-bold text-xl text-soft-charcoal mb-2">Global Presence</div>
-              <p className="font-sans text-medium-gray text-sm">4 Regional Offices</p>
+              <div className="font-serif font-bold text-xl text-soft-charcoal mb-2">{t('contact.globalPresence')}</div>
+              <p className="font-sans text-medium-gray text-sm">{t('contact.globalPresenceDesc')}</p>
             </div>
             <div className="text-center bg-pure-white/70 backdrop-blur-sm rounded-2xl p-6 shadow-soft border border-light-gray/20">
               <div className="w-16 h-16 bg-mint-green/20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Users className="w-8 h-8 text-mint-green" />
               </div>
-              <div className="font-serif font-bold text-xl text-mint-green mb-2">Expert Team</div>
-              <p className="font-sans text-medium-gray text-sm">Dedicated Specialists</p>
+              <div className="font-serif font-bold text-xl text-mint-green mb-2">{t('contact.expertTeam')}</div>
+              <p className="font-sans text-medium-gray text-sm">{t('contact.expertTeamDesc')}</p>
             </div>
             <div className="text-center bg-pure-white/70 backdrop-blur-sm rounded-2xl p-6 shadow-soft border border-light-gray/20">
               <div className="w-16 h-16 bg-powder-blue/20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Mail className="w-8 h-8 text-powder-blue" />
               </div>
-              <div className="font-serif font-bold text-xl text-powder-blue mb-2">24h Response</div>
-              <p className="font-sans text-medium-gray text-sm">Quick Reply Promise</p>
+              <div className="font-serif font-bold text-xl text-powder-blue mb-2">{t('contact.response')}</div>
+              <p className="font-sans text-medium-gray text-sm">{t('contact.responseDesc')}</p>
             </div>
             <div className="text-center bg-pure-white/70 backdrop-blur-sm rounded-2xl p-6 shadow-soft border border-light-gray/20">
               <div className="w-16 h-16 bg-soft-gold/20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Award className="w-8 h-8 text-soft-gold" />
               </div>
-              <div className="font-serif font-bold text-xl text-soft-gold mb-2">Premium Service</div>
-              <p className="font-sans text-medium-gray text-sm">White-glove Support</p>
+              <div className="font-serif font-bold text-xl text-soft-gold mb-2">{t('contact.premiumService')}</div>
+              <p className="font-sans text-medium-gray text-sm">{t('contact.premiumServiceDesc')}</p>
             </div>
           </div>
 
           <div className="text-center">
             <Link to="/contact" className="btn-primary shadow-soft hover:shadow-pastel flex items-center space-x-2 inline-flex">
-              <span>Contact Our Team</span>
+              <span>{t('contact.contactTeam')}</span>
               <ArrowRight className="w-5 h-5" />
             </Link>
           </div>
@@ -450,10 +445,10 @@ const HomePage: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
             <h2 className="font-serif font-bold text-5xl sm:text-6xl text-soft-charcoal mb-6">
-              What Our Clients Say
+              {t('testimonials.title')}
             </h2>
             <p className="font-sans text-lg text-medium-gray max-w-3xl mx-auto leading-relaxed">
-              Trusted by fashion designers, interior decorators, and textile manufacturers worldwide.
+              {t('testimonials.description')}
             </p>
           </div>
 
@@ -494,18 +489,17 @@ const HomePage: React.FC = () => {
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <h2 className="font-serif font-bold text-5xl sm:text-6xl text-soft-charcoal mb-6">
-            Ready to Elevate Your Designs?
+            {t('common.readyToElevate')}
           </h2>
           <p className="font-sans text-lg text-soft-charcoal/80 max-w-2xl mx-auto mb-8 leading-relaxed">
-            Join thousands of designers worldwide who trust BZJ Jakar for premium jacquard fabrics. 
-            Request a quote today and discover the difference quality makes.
+            {t('common.readyDescription')}
           </p>
           <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
             <Link to="/wholesale" className="btn-primary bg-gradient-to-r from-soft-charcoal to-medium-gray text-pure-white hover:from-medium-gray hover:to-soft-charcoal shadow-gradient">
-              Get Wholesale Pricing
+              {t('wholesale.getWholesalePricing')}
             </Link>
             <Link to="/contact" className="btn-secondary on-light border-2 border-soft-charcoal hover:bg-gradient-soft">
-              Contact Our Team
+              {t('contact.contactTeam')}
             </Link>
           </div>
         </div>
