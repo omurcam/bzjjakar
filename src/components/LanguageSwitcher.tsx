@@ -15,6 +15,11 @@ const LanguageSwitcher: React.FC = () => {
       code: 'tr',
       name: 'Türkçe',
       flag: '🇹🇷'
+    },
+    {
+      code: 'ar',
+      name: 'العربية',
+      flag: '🇸🇦'
     }
   ];
 

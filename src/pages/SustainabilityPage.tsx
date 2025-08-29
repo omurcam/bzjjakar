@@ -4,108 +4,19 @@ import { Leaf, Droplets, Recycle, Award, Target, TrendingUp, Users, Globe } from
 
 const SustainabilityPage: React.FC = () => {
   const { t } = useTranslation();
-  const initiatives = [
-    {
-      icon: <Leaf className="w-12 h-12 text-mint-green" />,
-      title: 'Eco-Friendly Materials',
-      description: 'Sourcing organic, recycled, and sustainably produced fibers',
-      metrics: '85% of materials certified organic or recycled',
-      image: '/images/eco_materials.png'
-    },
-    {
-      icon: <Droplets className="w-12 h-12 text-powder-blue" />,
-      title: 'Water Conservation',
-      description: 'Advanced water recycling and conservation systems',
-      metrics: '60% reduction in water usage since 2020',
-      image: '/images/water_conservation.png'
-    },
-    {
-      icon: <Recycle className="w-12 h-12 text-soft-gold" />,
-      title: 'Waste Reduction',
-      description: 'Zero-waste manufacturing and textile recycling programs',
-      metrics: '95% of production waste recycled or repurposed',
-      image: '/images/eco_friendly_textile.png'
-    }
-  ];
+  const initiatives = (t('sustainabilityPage.initiatives.items', { returnObjects: true }) as Array<{ title: string; description: string; metrics: string; image: string; }>).map((item, idx) => ({
+    ...item,
+    icon: idx === 0 ? <Leaf className="w-12 h-12 text-mint-green" /> : idx === 1 ? <Droplets className="w-12 h-12 text-powder-blue" /> : <Recycle className="w-12 h-12 text-soft-gold" />
+  }));
 
-  const certifications = [
-    {
-      name: 'OEKO-TEX Standard 100',
-      description: 'Ensures fabrics are free from harmful chemicals',
-      year: 'Certified since 2018'
-    },
-    {
-      name: 'Global Organic Textile Standard (GOTS)',
-      description: 'Certifies organic fiber content and environmental criteria',
-      year: 'Certified since 2019'
-    },
-    {
-      name: 'Cradle to Cradle Certified',
-      description: 'Products designed for circular economy',
-      year: 'Gold Level since 2021'
-    },
-    {
-      name: 'ISO 14001',
-      description: 'Environmental management system certification',
-      year: 'Certified since 2017'
-    },
-    {
-      name: 'Better Cotton Initiative',
-      description: 'Sustainable cotton sourcing partnership',
-      year: 'Member since 2020'
-    },
-    {
-      name: 'Carbon Trust Certification',
-      description: 'Carbon footprint measurement and reduction',
-      year: 'Certified since 2022'
-    }
-  ];
+  const certifications = t('sustainabilityPage.certifications.list', { returnObjects: true }) as Array<{ name: string; description: string; year: string; }>;
 
-  const goals = [
-    {
-      icon: <Target className="w-8 h-8 text-mint-green" />,
-      title: 'Carbon Neutral by 2030',
-      description: 'Achieving net-zero carbon emissions across all operations through renewable energy and carbon offset programs.'
-    },
-    {
-      icon: <Droplets className="w-8 h-8 text-powder-blue" />,
-      title: '75% Water Reduction',
-      description: 'Further reducing water consumption through advanced recycling technologies and process optimization.'
-    },
-    {
-      icon: <Recycle className="w-8 h-8 text-soft-gold" />,
-      title: '100% Circular Production',
-      description: 'Implementing closed-loop manufacturing where all waste becomes input for new products.'
-    },
-    {
-      icon: <Users className="w-8 h-8 text-powder-blue" />,
-      title: 'Supply Chain Transparency',
-      description: 'Complete traceability of all materials from source to final product with ethical supplier partnerships.'
-    }
-  ];
+  const goals = (t('sustainabilityPage.goals.items', { returnObjects: true }) as Array<{ title: string; description: string; }>).map((item, idx) => ({
+    ...item,
+    icon: idx === 0 ? <Target className="w-8 h-8 text-mint-green" /> : idx === 1 ? <Droplets className="w-8 h-8 text-powder-blue" /> : idx === 2 ? <Recycle className="w-8 h-8 text-soft-gold" /> : <Users className="w-8 h-8 text-powder-blue" />
+  }));
 
-  const impactMetrics = [
-    {
-      number: '2.5M',
-      unit: 'gallons',
-      description: 'Water saved annually through conservation programs'
-    },
-    {
-      number: '450',
-      unit: 'tons',
-      description: 'CO2 emissions reduced in 2024'
-    },
-    {
-      number: '95%',
-      unit: '',
-      description: 'Production waste diverted from landfills'
-    },
-    {
-      number: '85%',
-      unit: '',
-      description: 'Materials sourced from sustainable suppliers'
-    }
-  ];
+  const impactMetrics = t('sustainabilityPage.impact.metrics', { returnObjects: true }) as Array<{ number: string; unit: string; description: string; }>;
 
   return (
     <div className="min-h-screen pt-20">
@@ -205,10 +116,10 @@ const SustainabilityPage: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="font-serif font-bold text-4xl mb-6">
-              Certifications & Standards
+              {t('sustainabilityPage.certifications.title')}
             </h2>
             <p className="font-sans text-lg text-pure-white/90 max-w-3xl mx-auto leading-relaxed">
-              Our commitment to sustainability is validated by leading international certification bodies.
+              {t('sustainabilityPage.certifications.description')}
             </p>
           </div>
 
@@ -237,33 +148,23 @@ const SustainabilityPage: React.FC = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="font-serif font-bold text-4xl text-soft-charcoal mb-6">
-                Carbon Footprint Reduction
+                {t('sustainabilityPage.carbon.title')}
               </h2>
               <div className="space-y-6 font-sans text-lg text-medium-gray leading-relaxed">
-                <p>
-                  Our comprehensive carbon reduction strategy encompasses every aspect of our operations, 
-                  from renewable energy adoption to supply chain optimization.
-                </p>
-                <p>
-                  We've invested $2.5 million in solar panel installations across our facilities, 
-                  now generating 70% of our energy needs from renewable sources.
-                </p>
-                <p>
-                  Through process optimization and efficiency improvements, we've reduced our 
-                  carbon intensity by 45% since 2020, putting us on track to achieve carbon 
-                  neutrality by 2030.
-                </p>
+                <p>{t('sustainabilityPage.carbon.p1')}</p>
+                <p>{t('sustainabilityPage.carbon.p2')}</p>
+                <p>{t('sustainabilityPage.carbon.p3')}</p>
               </div>
               <div className="mt-8 grid sm:grid-cols-2 gap-6">
                 <div className="bg-mint-green/10 rounded-2xl p-4 border border-mint-green/20">
                   <TrendingUp className="w-8 h-8 text-mint-green mb-2" />
-                  <div className="font-serif font-bold text-2xl text-mint-green">45%</div>
-                  <div className="font-sans text-sm text-mint-green">Carbon reduction since 2020</div>
+                  <div className="font-serif font-bold text-2xl text-mint-green">{t('sustainabilityPage.carbon.cards.reduction.value')}</div>
+                  <div className="font-sans text-sm text-mint-green">{t('sustainabilityPage.carbon.cards.reduction.label')}</div>
                 </div>
                 <div className="bg-powder-blue/10 rounded-2xl p-4 border border-powder-blue/20">
                   <Globe className="w-8 h-8 text-powder-blue mb-2" />
-                  <div className="font-serif font-bold text-2xl text-powder-blue">70%</div>
-                  <div className="font-sans text-sm text-powder-blue">Renewable energy usage</div>
+                  <div className="font-serif font-bold text-2xl text-powder-blue">{t('sustainabilityPage.carbon.cards.renewable.value')}</div>
+                  <div className="font-sans text-sm text-powder-blue">{t('sustainabilityPage.carbon.cards.renewable.label')}</div>
                 </div>
               </div>
             </div>
@@ -271,28 +172,28 @@ const SustainabilityPage: React.FC = () => {
               <div className="absolute inset-0 bg-mint-green/20 rounded-2xl transform rotate-3"></div>
               <div className="relative bg-gradient-card rounded-2xl p-8 backdrop-blur-sm border border-light-gray/20">
                 <h3 className="font-serif font-semibold text-2xl text-soft-charcoal mb-6">
-                  Carbon Neutral Journey
+                  {t('sustainabilityPage.carbon.journeyTitle')}
                 </h3>
                 <div className="space-y-4">
                   <div className="flex items-center">
                     <div className="w-4 h-4 bg-mint-green rounded-full mr-4"></div>
-                    <span className="font-sans text-medium-gray">2020: Baseline measurement - 2,400 tons CO2</span>
+                    <span className="font-sans text-medium-gray">{t('sustainabilityPage.carbon.journey.0')}</span>
                   </div>
                   <div className="flex items-center">
                     <div className="w-4 h-4 bg-mint-green rounded-full mr-4"></div>
-                    <span className="font-sans text-medium-gray">2022: 25% reduction achieved</span>
+                    <span className="font-sans text-medium-gray">{t('sustainabilityPage.carbon.journey.1')}</span>
                   </div>
                   <div className="flex items-center">
                     <div className="w-4 h-4 bg-mint-green rounded-full mr-4"></div>
-                    <span className="font-sans text-medium-gray">2024: 45% reduction achieved</span>
+                    <span className="font-sans text-medium-gray">{t('sustainabilityPage.carbon.journey.2')}</span>
                   </div>
                   <div className="flex items-center">
                     <div className="w-4 h-4 bg-mint-green/60 rounded-full mr-4"></div>
-                    <span className="font-sans text-medium-gray">2027: 80% reduction target</span>
+                    <span className="font-sans text-medium-gray">{t('sustainabilityPage.carbon.journey.3')}</span>
                   </div>
                   <div className="flex items-center">
                     <div className="w-4 h-4 bg-mint-green/40 rounded-full mr-4"></div>
-                    <span className="font-sans text-medium-gray">2030: Carbon neutral goal</span>
+                    <span className="font-sans text-medium-gray">{t('sustainabilityPage.carbon.journey.4')}</span>
                   </div>
                 </div>
               </div>
@@ -305,12 +206,8 @@ const SustainabilityPage: React.FC = () => {
       <section className="section-spacing bg-gradient-accent relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="font-serif font-bold text-4xl text-soft-charcoal mb-6">
-              2030 Sustainability Goals
-            </h2>
-            <p className="font-sans text-lg text-soft-charcoal/80 max-w-3xl mx-auto leading-relaxed">
-              Ambitious targets that will position us as a leader in sustainable textile manufacturing.
-            </p>
+            <h2 className="font-serif font-bold text-4xl text-soft-charcoal mb-6">{t('sustainabilityPage.goals.title')}</h2>
+            <p className="font-sans text-lg text-soft-charcoal/80 max-w-3xl mx-auto leading-relaxed">{t('sustainabilityPage.goals.description')}</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
@@ -345,24 +242,22 @@ const SustainabilityPage: React.FC = () => {
             <div className="grid md:grid-cols-3 gap-8 mb-12">
               <div className="text-center">
                 <Users className="w-12 h-12 text-soft-charcoal mx-auto mb-4" />
-                <h3 className="font-serif font-semibold text-xl text-soft-charcoal mb-3">Supplier Network</h3>
-                <p className="font-sans text-medium-gray">Working with 200+ certified sustainable suppliers worldwide</p>
+                <h3 className="font-serif font-semibold text-xl text-soft-charcoal mb-3">{t('sustainabilityPage.partnerships.cards.0.title')}</h3>
+                <p className="font-sans text-medium-gray">{t('sustainabilityPage.partnerships.cards.0.description')}</p>
               </div>
               <div className="text-center">
                 <Globe className="w-12 h-12 text-mint-green mx-auto mb-4" />
-                <h3 className="font-serif font-semibold text-xl text-soft-charcoal mb-3">Industry Initiatives</h3>
-                <p className="font-sans text-medium-gray">Active member of 15+ sustainability organizations</p>
+                <h3 className="font-serif font-semibold text-xl text-soft-charcoal mb-3">{t('sustainabilityPage.partnerships.cards.1.title')}</h3>
+                <p className="font-sans text-medium-gray">{t('sustainabilityPage.partnerships.cards.1.description')}</p>
               </div>
               <div className="text-center">
                 <Award className="w-12 h-12 text-soft-gold mx-auto mb-4" />
-                <h3 className="font-serif font-semibold text-xl text-soft-charcoal mb-3">Research Partnerships</h3>
-                <p className="font-sans text-medium-gray">Collaborating with 5 universities on textile innovation</p>
+                <h3 className="font-serif font-semibold text-xl text-soft-charcoal mb-3">{t('sustainabilityPage.partnerships.cards.2.title')}</h3>
+                <p className="font-sans text-medium-gray">{t('sustainabilityPage.partnerships.cards.2.description')}</p>
               </div>
             </div>
             <div className="text-center">
-              <a href="/contact" className="btn-primary">
-                Join Our Sustainability Journey
-              </a>
+              <a href="/contact" className="btn-primary">{t('sustainabilityPage.partnerships.cta')}</a>
             </div>
           </div>
         </div>

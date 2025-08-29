@@ -28,125 +28,32 @@ const WholesalePage: React.FC = () => {
 
   const pricingTiers: PricingTier[] = [
     {
-      name: 'Premium Tier',
-      minOrder: '50m',
-      discount: '5-10%',
-      priceRange: '$28-45/yard',
-      benefits: [
-        'Premium fabric selection',
-        'Standard 30-day payment terms',
-        'Regional shipping included',
-        'Basic technical support',
-        'Quarterly trend reports'
-      ]
+      name: t('wholesalePage.pricing.tiers.premium.name'),
+      minOrder: t('wholesalePage.pricing.tiers.premium.minOrder'),
+      discount: t('wholesalePage.pricing.tiers.premium.discount'),
+      priceRange: t('wholesalePage.pricing.tiers.premium.priceRange'),
+      benefits: t('wholesalePage.pricing.tiers.premium.benefits', { returnObjects: true }) as string[]
     },
     {
-      name: 'Standard Tier',
-      minOrder: '100m',
-      discount: '10-15%',
-      priceRange: '$25-38/yard',
-      benefits: [
-        'Full collection access',
-        'Extended 45-day payment terms',
-        'Free international shipping',
-        'Priority technical support',
-        'Monthly trend forecasts',
-        'Custom color matching'
-      ],
+      name: t('wholesalePage.pricing.tiers.standard.name'),
+      minOrder: t('wholesalePage.pricing.tiers.standard.minOrder'),
+      discount: t('wholesalePage.pricing.tiers.standard.discount'),
+      priceRange: t('wholesalePage.pricing.tiers.standard.priceRange'),
+      benefits: t('wholesalePage.pricing.tiers.standard.benefits', { returnObjects: true }) as string[],
       recommended: true
     },
     {
-      name: 'Bulk Tier',
-      minOrder: '200m',
-      discount: '15-25%',
-      priceRange: '$22-35/yard',
-      benefits: [
-        'Exclusive bulk pricing',
-        'Flexible 60-day payment terms',
-        'Express shipping options',
-        'Dedicated account manager',
-        'Weekly market insights',
-        'Custom design services',
-        'Quality guarantee program'
-      ]
-    },
-    {
-      name: 'Enterprise Tier',
-      minOrder: '500m+',
-      discount: '25-35%',
-      priceRange: '$18-30/yard',
-      benefits: [
-        'Maximum volume discounts',
-        'Customized payment terms',
-        'White-glove logistics',
-        'Senior account executive',
-        'Real-time market data',
-        'Bespoke pattern development',
-        'Priority production slots',
-        'Annual business reviews'
-      ]
+      name: t('wholesalePage.pricing.tiers.bulk.name'),
+      minOrder: t('wholesalePage.pricing.tiers.bulk.minOrder'),
+      discount: t('wholesalePage.pricing.tiers.bulk.discount'),
+      priceRange: t('wholesalePage.pricing.tiers.bulk.priceRange'),
+      benefits: t('wholesalePage.pricing.tiers.bulk.benefits', { returnObjects: true }) as string[]
     }
   ];
 
-  const processSteps = [
-    {
-      step: '1',
-      title: 'Initial Inquiry',
-      description: 'Submit your requirements through our wholesale inquiry form',
-      timeline: '24 hours response'
-    },
-    {
-      step: '2',
-      title: 'Sample Request',
-      description: 'Receive fabric samples and detailed specifications',
-      timeline: '5-7 business days'
-    },
-    {
-      step: '3',
-      title: 'Quote & Negotiation',
-      description: 'Custom pricing based on volume and specifications',
-      timeline: '2-3 business days'
-    },
-    {
-      step: '4',
-      title: 'Order Confirmation',
-      description: 'Finalize order details, payment terms, and timeline',
-      timeline: '1 business day'
-    },
-    {
-      step: '5',
-      title: 'Production & QC',
-      description: 'Manufacturing with rigorous quality control',
-      timeline: '2-4 weeks'
-    },
-    {
-      step: '6',
-      title: 'Shipping & Delivery',
-      description: 'Global logistics and delivery confirmation',
-      timeline: '1-2 weeks'
-    }
-  ];
+  const processSteps = (t('wholesalePage.process.steps', { returnObjects: true }) as Array<{ step: string; title: string; description: string; timeline: string; }>);
 
-  const testimonials = [
-    {
-      company: 'Elite Fashion House',
-      contact: 'Sarah Chen, Procurement Director',
-      quote: 'BZJ Jakar has been our primary fabric supplier for three years. Their consistency, quality, and service are unmatched in the industry.',
-      orderSize: '2,000+ yards annually'
-    },
-    {
-      company: 'Luxury Interiors Ltd',
-      contact: 'Marco Rodriguez, Head Buyer',
-      quote: 'The bulk pricing and custom design services have enabled us to offer premium products while maintaining healthy margins.',
-      orderSize: '500+ yards per project'
-    },
-    {
-      company: 'Sustainable Brands Co',
-      contact: 'Emma Thompson, Supply Chain Manager',
-      quote: 'Their commitment to sustainability aligns perfectly with our brand values. The organic collections are exceptional.',
-      orderSize: '1,000+ yards quarterly'
-    }
-  ];
+  const testimonials = t('wholesalePage.testimonials.clients', { returnObjects: true }) as Array<{ company: string; contact: string; quote: string; orderSize: string; }>;
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -215,7 +122,7 @@ const WholesalePage: React.FC = () => {
               >
                 {tier.recommended && (
                   <div className="absolute top-0 left-0 right-0 bg-gradient-accent text-soft-charcoal text-center py-2 font-sans font-bold text-sm">
-                    MOST POPULAR
+                    {t('wholesalePage.pricing.mostPopular')}
                   </div>
                 )}
                 <div className={`p-8 ${tier.recommended ? 'pt-12' : ''}`}>
@@ -226,11 +133,11 @@ const WholesalePage: React.FC = () => {
                     {tier.priceRange}
                   </div>
                   <div className="font-sans text-sm text-medium-gray mb-4">
-                    Minimum order: {tier.minOrder}
+                    {t('wholesalePage.pricing.labels.minimumOrder')}: {tier.minOrder}
                   </div>
                   <div className="bg-mint-green/20 rounded-xl p-3 mb-6 border border-mint-green/30">
                     <div className="font-sans font-semibold text-mint-green">
-                      Volume Discount: {tier.discount}
+                      {t('wholesalePage.pricing.labels.volumeDiscount')}: {tier.discount}
                     </div>
                   </div>
                   <ul className="space-y-3">
@@ -249,7 +156,7 @@ const WholesalePage: React.FC = () => {
                     }`}
                     onClick={() => setSelectedTier(tier.name.toLowerCase().replace(' ', ''))}
                   >
-                    Get Quote
+                    {t('wholesalePage.pricing.getQuote')}
                   </button>
                 </div>
               </div>
@@ -263,10 +170,10 @@ const WholesalePage: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="font-serif font-bold text-4xl text-soft-charcoal mb-6">
-              Order Process & Timeline
+              {t('wholesalePage.process.title')}
             </h2>
             <p className="font-sans text-lg text-medium-gray max-w-3xl mx-auto leading-relaxed">
-              Our streamlined wholesale process ensures efficient ordering from initial inquiry to delivery.
+              {t('wholesalePage.process.description')}
             </p>
           </div>
 
@@ -306,13 +213,11 @@ const WholesalePage: React.FC = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="font-serif font-bold text-4xl mb-6">
-                Global Logistics Network
+                {t('wholesalePage.capabilities.title')}
               </h2>
               <div className="space-y-6 font-sans text-lg text-pure-white/90 leading-relaxed">
                 <p>
-                  Our advanced warehouse facilities and global logistics network ensure reliable, 
-                  timely delivery to clients worldwide. With strategic partnerships across major 
-                  shipping routes, we guarantee your fabrics arrive on schedule.
+                  {t('wholesalePage.capabilities.description')}
                 </p>
                 <p>
                   Climate-controlled storage facilities protect fabric quality during transit, 
@@ -324,17 +229,17 @@ const WholesalePage: React.FC = () => {
                 <div className="text-center">
                   <Truck className="w-8 h-8 text-soft-gold mx-auto mb-2" />
                   <div className="font-serif font-bold text-2xl text-soft-gold">72h</div>
-                  <div className="font-sans text-sm text-pure-white/80">Regional Delivery</div>
+                  <div className="font-sans text-sm text-pure-white/80">{t('wholesalePage.capabilities.stats.shipping.label')}</div>
                 </div>
                 <div className="text-center">
                   <Globe className="w-8 h-8 text-soft-gold mx-auto mb-2" />
                   <div className="font-serif font-bold text-2xl text-soft-gold">7-14d</div>
-                  <div className="font-sans text-sm text-pure-white/80">International</div>
+                  <div className="font-sans text-sm text-pure-white/80">{t('wholesalePage.capabilities.stats.international.label')}</div>
                 </div>
                 <div className="text-center">
                   <Package className="w-8 h-8 text-soft-gold mx-auto mb-2" />
                   <div className="font-serif font-bold text-2xl text-soft-gold">99.8%</div>
-                  <div className="font-sans text-sm text-pure-white/80">On-Time Rate</div>
+                  <div className="font-sans text-sm text-pure-white/80">{t('wholesalePage.capabilities.stats.onTime.label')}</div>
                 </div>
               </div>
             </div>
@@ -361,44 +266,41 @@ const WholesalePage: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="font-serif font-bold text-4xl text-soft-charcoal mb-6">
-              Wholesale Terms Overview
+              {t('wholesalePage.terms.title')}
             </h2>
             <p className="font-sans text-lg text-medium-gray max-w-3xl mx-auto leading-relaxed">
-              Transparent, fair terms designed to build lasting business relationships.
+              {t('wholesalePage.terms.description')}
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-pure-white/70 backdrop-blur-sm rounded-2xl shadow-soft p-8 hover:shadow-pastel transition-shadow duration-300 border border-light-gray/20">
               <CreditCard className="w-12 h-12 text-soft-charcoal mb-4" />
-              <h3 className="font-serif font-semibold text-xl text-soft-charcoal mb-4">Payment Terms</h3>
+              <h3 className="font-serif font-semibold text-xl text-soft-charcoal mb-4">{t('wholesalePage.terms.payment.title')}</h3>
               <ul className="space-y-2 font-sans text-medium-gray">
-                <li>• 30-60 day payment terms</li>
-                <li>• Multiple payment methods</li>
-                <li>• Credit applications available</li>
-                <li>• Early payment discounts</li>
+                {(t('wholesalePage.terms.payment.items', { returnObjects: true }) as string[]).map((item, i) => (
+                  <li key={i}>• {item}</li>
+                ))}
               </ul>
             </div>
             
             <div className="bg-pure-white/70 backdrop-blur-sm rounded-2xl shadow-soft p-8 hover:shadow-pastel transition-shadow duration-300 border border-light-gray/20">
               <FileText className="w-12 h-12 text-soft-charcoal mb-4" />
-              <h3 className="font-serif font-semibold text-xl text-soft-charcoal mb-4">Order Policies</h3>
+              <h3 className="font-serif font-semibold text-xl text-soft-charcoal mb-4">{t('wholesalePage.terms.policies.title')}</h3>
               <ul className="space-y-2 font-sans text-medium-gray">
-                <li>• Minimum order quantities apply</li>
-                <li>• Custom orders require 50% deposit</li>
-                <li>• Returns within 30 days</li>
-                <li>• Quality guarantee included</li>
+                {(t('wholesalePage.terms.policies.items', { returnObjects: true }) as string[]).map((item, i) => (
+                  <li key={i}>• {item}</li>
+                ))}
               </ul>
             </div>
             
             <div className="bg-pure-white/70 backdrop-blur-sm rounded-2xl shadow-soft p-8 hover:shadow-pastel transition-shadow duration-300 border border-light-gray/20">
               <Truck className="w-12 h-12 text-soft-charcoal mb-4" />
-              <h3 className="font-serif font-semibold text-xl text-soft-charcoal mb-4">Shipping & Delivery</h3>
+              <h3 className="font-serif font-semibold text-xl text-soft-charcoal mb-4">{t('wholesalePage.terms.shipping.title')}</h3>
               <ul className="space-y-2 font-sans text-medium-gray">
-                <li>• Free shipping on qualified orders</li>
-                <li>• Express delivery options</li>
-                <li>• International shipping available</li>
-                <li>• Insurance coverage included</li>
+                {(t('wholesalePage.terms.shipping.items', { returnObjects: true }) as string[]).map((item, i) => (
+                  <li key={i}>• {item}</li>
+                ))}
               </ul>
             </div>
           </div>
@@ -410,10 +312,10 @@ const WholesalePage: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="font-serif font-bold text-4xl text-soft-charcoal mb-6">
-              Client Success Stories
+              {t('wholesalePage.testimonials.title')}
             </h2>
             <p className="font-sans text-lg text-medium-gray max-w-3xl mx-auto leading-relaxed">
-              Hear from wholesale partners who have grown their businesses with BZJ Jakar.
+              {t('wholesalePage.testimonials.description')}
             </p>
           </div>
 
@@ -446,19 +348,15 @@ const WholesalePage: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="font-serif font-bold text-4xl text-soft-charcoal mb-6">
-                Request Wholesale Quote
-              </h2>
-              <p className="font-sans text-lg text-soft-charcoal/80 leading-relaxed">
-                Fill out this form to receive a personalized wholesale quote within 24 hours.
-              </p>
+              <h2 className="font-serif font-bold text-4xl text-soft-charcoal mb-6">{t('wholesalePage.inquiry.title')}</h2>
+              <p className="font-sans text-lg text-soft-charcoal/80 leading-relaxed">{t('wholesalePage.inquiry.description')}</p>
             </div>
 
             <div className="bg-pure-white/90 backdrop-blur-sm rounded-3xl shadow-pastel p-8 border border-light-gray/20">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block font-sans font-medium text-soft-charcoal mb-2">Company Name *</label>
+                    <label className="block font-sans font-medium text-soft-charcoal mb-2">{t('wholesalePage.inquiry.form.companyName')} *</label>
                     <input
                       type="text"
                       name="companyName"
@@ -469,7 +367,7 @@ const WholesalePage: React.FC = () => {
                     />
                   </div>
                   <div>
-                    <label className="block font-sans font-medium text-soft-charcoal mb-2">Contact Name *</label>
+                    <label className="block font-sans font-medium text-soft-charcoal mb-2">{t('wholesalePage.inquiry.form.contactName')} *</label>
                     <input
                       type="text"
                       name="contactName"
@@ -483,7 +381,7 @@ const WholesalePage: React.FC = () => {
 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block font-sans font-medium text-soft-charcoal mb-2">Email Address *</label>
+                    <label className="block font-sans font-medium text-soft-charcoal mb-2">{t('wholesalePage.inquiry.form.email')} *</label>
                     <input
                       type="email"
                       name="email"
@@ -494,7 +392,7 @@ const WholesalePage: React.FC = () => {
                     />
                   </div>
                   <div>
-                    <label className="block font-sans font-medium text-soft-charcoal mb-2">Phone Number</label>
+                    <label className="block font-sans font-medium text-soft-charcoal mb-2">{t('wholesalePage.inquiry.form.phone')}</label>
                     <input
                       type="tel"
                       name="phone"
@@ -507,7 +405,7 @@ const WholesalePage: React.FC = () => {
 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block font-sans font-medium text-soft-charcoal mb-2">Country *</label>
+                    <label className="block font-sans font-medium text-soft-charcoal mb-2">{t('wholesalePage.inquiry.form.country')} *</label>
                     <select
                       name="country"
                       value={inquiryForm.country}
@@ -528,7 +426,7 @@ const WholesalePage: React.FC = () => {
                     </select>
                   </div>
                   <div>
-                    <label className="block font-sans font-medium text-soft-charcoal mb-2">Estimated Order Quantity *</label>
+                    <label className="block font-sans font-medium text-soft-charcoal mb-2">{t('wholesalePage.inquiry.form.orderQuantity')} *</label>
                     <select
                       name="orderQuantity"
                       value={inquiryForm.orderQuantity}
@@ -546,7 +444,7 @@ const WholesalePage: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="block font-sans font-medium text-soft-charcoal mb-2">Timeline</label>
+                  <label className="block font-sans font-medium text-soft-charcoal mb-2">{t('wholesalePage.inquiry.form.timeline')}</label>
                   <select
                     name="timeline"
                     value={inquiryForm.timeline}
@@ -563,7 +461,7 @@ const WholesalePage: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="block font-sans font-medium text-soft-charcoal mb-2">Additional Information</label>
+                  <label className="block font-sans font-medium text-soft-charcoal mb-2">{t('wholesalePage.inquiry.form.additionalInfo')}</label>
                   <textarea
                     name="additionalInfo"
                     value={inquiryForm.additionalInfo}
@@ -577,11 +475,11 @@ const WholesalePage: React.FC = () => {
                 <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
                   <button type="submit" className="btn-primary bg-gradient-to-br from-soft-charcoal to-medium-gray text-pure-white hover:from-medium-gray hover:to-soft-charcoal flex items-center space-x-2">
                     <Mail className="w-5 h-5" />
-                    <span>Submit Inquiry</span>
+                    <span>{t('wholesalePage.inquiry.form.submitInquiry')}</span>
                   </button>
                   <button type="button" className="btn-secondary border-2 border-soft-charcoal text-soft-charcoal hover:bg-gradient-soft flex items-center space-x-2">
                     <Phone className="w-5 h-5" />
-                    <span>Call Our Sales Team</span>
+                    <span>{t('wholesalePage.inquiry.form.callSalesTeam')}</span>
                   </button>
                 </div>
               </form>
